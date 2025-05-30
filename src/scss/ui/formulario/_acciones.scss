@@ -1,0 +1,21 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.acciones{
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+    &__enlace{
+        color: v.$azul;
+    margin: 0 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-shadow: 0 0 6px rgba(0, 150, 255, 0.7);
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: v.$blanco;
+      text-shadow: 0 0 15px rgba(0, 150, 255, 1);
+    }
+    }
+}

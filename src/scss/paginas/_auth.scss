@@ -1,0 +1,47 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+body{
+background-image: url('/build/img/fondo.png');
+background-repeat: no-repeat;
+background-size: cover;
+
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/build/img/fondo.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  filter: blur(10px) brightness(0.7) saturate(1.2);
+  z-index: 0;
+}
+.auth{
+    @include m.contenedor-sm;
+    position: relative;
+  z-index: 1;
+  @include m.contenedor-sm;
+
+  background: rgba(10, 25, 60, 0.75); /* Fondo semitransparente azul oscuro para contraste */
+  padding: 3rem 2rem;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 150, 255, 0.6);
+  backdrop-filter: saturate(180%) blur(10px); /* efecto de cristal difuso */
+  border: 1px solid rgba(0, 150, 255, 0.4); /* borde eléctrico */
+    
+    
+
+   
+}
+.auth__texto{
+   font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: v.$blanco;
+  text-shadow: 0 0 6px rgba(0, 150, 255, 0.7);
+}
