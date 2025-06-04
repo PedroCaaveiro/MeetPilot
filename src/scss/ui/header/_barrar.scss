@@ -3,7 +3,7 @@
 
 
 .barra{
-background-color: v.$azul;
+background-color: rgba(72, 85, 113, 0.75); 
     &__contenido{
 @include m.contenedor;
 display: flex;
@@ -16,7 +16,8 @@ flex-direction: column;
     }
     &__logo{
         @include m.logo();
-        @include m.texto-fluido(2rem,3rem)
+        @include m.texto-fluido(2rem,3rem);
+            @include m.texto-degradado(v.$azul,v.$blanco);
 
     }
 }

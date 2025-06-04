@@ -1,2 +1,42 @@
 @use 'base/mixins' as m;
 @use 'base/variables' as v;
+
+.navegacion {
+  display: flex;
+  flex-direction: column;
+
+  @include m.desktop {
+    flex-direction: row;
+  }
+
+  &__enlace {
+    position: relative;
+    color: v.$blanco;
+    font-size: 2rem;
+    padding: 2rem;
+    text-transform: uppercase;
+    text-align: center;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0.5rem;
+      left: 50%;
+      height: 2px;
+      width: 100%;
+      background-color: v.$azul;
+      transform: translateX(-50%) scaleX(0);
+      transform-origin: center;
+      transition: transform 0.6s ease;
+      border-radius: 1px;
+    }
+
+    &:hover {
+      color: v.$azul;
+
+      &::after {
+        transform: translateX(-50%) scaleX(1);
+      }
+    }
+  }
+}

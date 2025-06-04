@@ -6,6 +6,7 @@ class ActiveRecord {
     protected static $db;
     protected static $tabla = '';
     protected static $columnasDB = [];
+    public $id;
 
     // Alertas y Mensajes
     protected static $alertas = [];
@@ -136,21 +137,26 @@ class ActiveRecord {
         // Sanitizar los datos
         $atributos = $this->sanitizarAtributos();
 
-        // Insertar en la base de datos
-        $query = " INSERT INTO " . static::$tabla . " ( ";
-        $query .= join(', ', array_keys($atributos));
-        $query .= " ) VALUES (' "; 
-        $query .= join("', '", array_values($atributos));
-        $query .= " ') ";
+    // Normalizar atributos numéricos
+    foreach($atributos as $key => $value) {
+        if(in_array($key, ['admin', 'confirmado'])) {
+            if(!is_numeric($value) || $value === '') {
+                $atributos[$key] = 0;
+            }
+        }
+    }
 
-        // debuguear($query); // Descomentar si no te funciona algo
+    $query = "INSERT INTO " . static::$tabla . " (";
+    $query .= join(', ', array_keys($atributos));
+    $query .= ") VALUES ('"; 
+    $query .= join("','", array_values($atributos));
+    $query .= "')";
 
-        // Resultado de la consulta
-        $resultado = self::$db->query($query);
-        return [
-           'resultado' =>  $resultado,
-           'id' => self::$db->insert_id
-        ];
+    $resultado = self::$db->query($query);
+    return [
+       'resultado' =>  $resultado,
+       'id' => self::$db->insert_id
+    ];
     }
 
     // Actualizar el registro
