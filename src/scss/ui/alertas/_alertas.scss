@@ -18,9 +18,10 @@ color:v.$blanco;
     }
 
     &__exito{
+    text-align: center;
 background-color: v.$verde;
-border-left: 0.5rem solid v.$verde;
-color:v.$verde;
+border-left: 0.5rem solid v.$gris-oscuro;
+color:v.$blanco;
 
     }
 }

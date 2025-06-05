@@ -239,7 +239,7 @@ class AuthController {
      
 
         $router->render('auth/confirmar', [
-            'titulo' => 'Confirma tu cuenta DevWebcamp',
+            'titulo' => 'Confirma tu cuenta MeetPilot',
             'alertas' => Usuario::getAlertas()
         ]);
     }

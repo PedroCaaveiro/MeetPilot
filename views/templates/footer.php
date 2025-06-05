@@ -2,7 +2,7 @@
     <div class="footer__grid">
         <div class="footer__contenido">
                <h3 class="footer__logo">&#60;MeetPilot /></h3>
-               <p class="footer__texto">MeetPilot Lugar de encuentro para dessarrolladores de todos los niveles de forma presencial u online</p>
+               <p class="footer__texto">MeetPilot Lugar de encuentro para desarrolladores de todos los niveles de forma presencial u online</p>
         </div>
         <nav class="menu-redes">
             <a href="https://www.facebook.com/pedro.caaveiromoncadas/" class="menu-redes__enlace" rel='noopener noreferrer' target='_blank'>

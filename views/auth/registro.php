@@ -39,7 +39,7 @@
         </div>
         <div class="formulario__campo">
             <label for="password" class="formulario__label">Password</label>
-            <input type="pasword"
+            <input type="password"
                 class="formulario__input"
                 id="password"
                 name='password'
@@ -49,7 +49,7 @@
 
         <div class="formulario__campo">
             <label for="password2" class="formulario__label">Repetir Password</label>
-            <input type="pasword2"
+            <input type="password"
                 class="formulario__input"
                 id="password2"
                 name='password2'

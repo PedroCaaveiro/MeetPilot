@@ -740,8 +740,9 @@ p {
   color: #FFFFFF;
 }
 .alerta__exito {
+  text-align: center;
   background-color: #02db02;
-  border-left: 0.5rem solid #02db02;
-  color: #02db02;
+  border-left: 0.5rem solid #1E293B;
+  color: #FFFFFF;
 }
 /*# sourceMappingURL=app.css.map */
