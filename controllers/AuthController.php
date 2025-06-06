@@ -23,6 +23,7 @@ class AuthController {
                 if(!$usuario || !$usuario->confirmado ) {
                     Usuario::setAlerta('error', 'El Usuario No Existe o no esta confirmado');
                 } else {
+
                     // El Usuario existe
                     if( password_verify($_POST['password'], $usuario->password) ) {
                         
@@ -33,6 +34,15 @@ class AuthController {
                         $_SESSION['apellido'] = $usuario->apellido;
                         $_SESSION['email'] = $usuario->email;
                         $_SESSION['admin'] = $usuario->admin ?? null;
+
+                       
+                        if ($usuario->admin) {
+                            header('Location:'. BASE_URL .'dashboard');
+                            exit;
+                        }else{
+                            header('Location:'. BASE_URL.'finalizar-registro');
+                            exit;
+                        }
                         
                     } else {
                         Usuario::setAlerta('error', 'Password Incorrecto');
@@ -54,7 +64,7 @@ class AuthController {
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
             session_start();
             $_SESSION = [];
-            header('Location: /');
+            header('Location:'. BASE_URL);
         }
        
     }
@@ -94,7 +104,7 @@ class AuthController {
                     
 
                     if($resultado) {
-                        header('Location: /mensaje');
+                        header('Location:'.BASE_URL .'mensaje');
                     }
                 }
             }
@@ -159,7 +169,7 @@ class AuthController {
 
         $token_valido = true;
 
-        if(!$token) header('Location: /');
+        if(!$token) header('Location:'.BASE_URL);
 
         // Identificar el usuario con este token
         $usuario = Usuario::where('token', $token);
@@ -190,7 +200,7 @@ class AuthController {
 
                 // Redireccionar
                 if($resultado) {
-                    header('Location: /');
+                    header('Location:'.BASE_URL);
                 }
             }
         }
@@ -216,14 +226,14 @@ class AuthController {
         
         $token = s($_GET['token']);
 
-        if(!$token) header('Location: /');
+        if(!$token) header('Location:'.BASE_URL);
 
         // Encontrar al usuario con este token
         $usuario = Usuario::where('token', $token);
 
         if(empty($usuario)) {
             // No se encontró un usuario con ese token
-            Usuario::setAlerta('error', 'Token No Válido');
+            Usuario::setAlerta('error', 'Token No Válido la cuenta no ha sido confirmada');
         } else {
             // Confirmar la cuenta
             $usuario->confirmado = 1;

@@ -2,7 +2,12 @@
 <h2 class="auth__heading"><?php echo $titulo?></h2>
 <p class="auth__texto">Recuperar Password</p>
 
-<form action="" class="formulario">
+
+<?php
+require_once __DIR__.'/../templates/alertas.php';
+?>
+
+<form  method="POST" action="<?php BASE_URL ?>olvide" class="formulario">
 
 
 

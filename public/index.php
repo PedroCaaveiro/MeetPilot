@@ -31,4 +31,6 @@ $router->get('/mensaje', [AuthController::class, 'mensaje']);
 $router->get('/confirmar-cuenta', [AuthController::class, 'confirmar']);
 
 
+
+
 $router->comprobarRutas();

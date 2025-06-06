@@ -7,10 +7,15 @@
     require_once __DIR__ . '/../templates/alertas.php';
     ?>
 
+<?php  if (isset($alertas['exito'])) 
+ 
+ {?>
+
+
   <div class="acciones">
         <a href="<?= BASE_URL ?>login" class=acciones__enlace>Iniciar Sesión</a>
         
 
     </div>
-
+<?php }?>
 </main>

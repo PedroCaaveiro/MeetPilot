@@ -2,7 +2,13 @@
 <h2 class="auth__heading"><?php echo $titulo?></h2>
 <p class="auth__texto">Iniciar Sesión MeetPilot</p>
 
-<form action="" class="formulario">
+<?php    
+
+require_once __DIR__. '/../templates/alertas.php';
+
+?>
+
+<form action="<?php BASE_URL?>login" method="POST" class="formulario">
 
 
 <div class="formulario__campo">
@@ -11,7 +17,7 @@
 </div>
 <div class="formulario__campo">
     <label for="password" class="formulario__label">Password</label>
-    <input type="pasword" class="formulario__input" id="password" name='password' placeholder='Tu Password'>
+    <input type="password" class="formulario__input" id="password" name='password' placeholder='Tu Password'>
 </div>
 <input type="submit" class="formulario__submit" value="Iniciar Sesión">
 </form>
