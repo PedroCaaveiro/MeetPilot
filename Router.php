@@ -48,6 +48,18 @@ class Router
 
         $contenido = ob_get_clean(); // Limpia el Buffer
 
-        include_once __DIR__ . '/views/layout.php';
+        // layout dependiendo de que url se use 
+         $url_actual = $_SERVER['PATH_INFO'] ?? '/';
+      
+        if (str_contains($url_actual,'/admin')) {
+
+            include_once __DIR__ . '/views/admin-layout.php';
+        // debuguear('lo contiene');
+        }else{
+            include_once __DIR__ . '/views/layout.php';
+            //debuguear('no lo contiene');
+        }
+
+        
     }
 }
