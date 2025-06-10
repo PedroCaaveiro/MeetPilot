@@ -95,6 +95,7 @@ padding: 1rem 1rem 3rem 1rem ;
 
 }
 &__contenedor-boton{
+    margin-bottom: 2rem;
     @include m.tablet{
 display: flex;
 justify-content:flex-end; 

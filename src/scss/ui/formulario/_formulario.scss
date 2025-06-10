@@ -4,10 +4,11 @@
 .formulario{
     display: flex;
     flex-direction: column;
+    
 
-    &__fielset{
+    &__fieldset{
       border: none;
-      margin-top: 1rem;
+      
       padding: 0;
     }
     &__legend{
@@ -19,6 +20,27 @@
     gap: 1rem;
     margin: 1.5rem;
    }
+   &__contenedor--icono{
+    display: flex;
+    border-radius: .5rem;
+    overflow: hidden;
+    
+   
+   }
+   &__icono{
+     background-color: v.$gris-oscuro;
+    width:5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     i {
+      color:v.$blanco;
+      font-size: 3rem;
+    }
+   }
+   
+   
+   
    &__label{
     display: block;
     font-size: 1.8rem;
@@ -34,10 +56,20 @@ padding: 1rem;
     font-size: 1.6rem;
     transition: border-color 0.3s ease;
     outline: none;
+    
  &:focus {
       border-color: v.$azul;
       box-shadow: 0 0 10px v.$azul;
       background: rgba(255, 255, 255, 0.15);
+    }
+    &::placeholder{
+      color:v.$blanco;
+    }
+    &--sociales{
+      @extend .formulario__input;
+      flex: 1;
+      border-top-left-radius:0 ;
+        border-bottom-left-radius:0 ;
     }
    }
    &__submit{
@@ -57,9 +89,7 @@ padding: 1rem;
       background-color:v.$azul;
       box-shadow: 0 0 20px v.$azul;
     }
-    &--registrar{
-      width:100% ;
-   }
+   
    }
    
 }
