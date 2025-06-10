@@ -25,8 +25,8 @@ require_once __DIR__.'/../templates/alertas.php';
 
 <?php }?>
 <div class="acciones">
-    <a href="<?= BASE_URL ?>login" class=acciones__enlace >Iniciar Sesión</a>
-<a href="<?= BASE_URL ?>registro" class=acciones__enlace >¿Aun no te registraste?</a>
+    <a href="<? echo BASE_URL ?>login" class=acciones__enlace >Iniciar Sesión</a>
+<a href="<? echo BASE_URL ?>registro" class=acciones__enlace >¿Aun no te registraste?</a>
 
 </div>
 

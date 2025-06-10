@@ -4,6 +4,15 @@
 .formulario{
     display: flex;
     flex-direction: column;
+
+    &__fielset{
+      border: none;
+      margin-top: 1rem;
+      padding: 0;
+    }
+    &__legend{
+      color:v.$blanco;
+    }
    &__campo{
     display: flex;
     flex-direction: column;
@@ -14,7 +23,7 @@
     display: block;
     font-size: 1.8rem;
     color: rgba(255, 255, 255, 0.85);
-    text-shadow: 0 0 5px rgba(0, 150, 255, 0.8);
+    
    }
    &__input{
 padding: 1rem;
@@ -48,5 +57,9 @@ padding: 1rem;
       background-color:v.$azul;
       box-shadow: 0 0 20px v.$azul;
     }
+    &--registrar{
+      width:100% ;
    }
+   }
+   
 }

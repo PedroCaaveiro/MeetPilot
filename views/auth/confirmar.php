@@ -13,7 +13,7 @@
 
 
   <div class="acciones">
-        <a href="<?= BASE_URL ?>login" class=acciones__enlace>Iniciar Sesión</a>
+        <a href="<? echo BASE_URL ?>login" class=acciones__enlace>Iniciar Sesión</a>
         
 
     </div>

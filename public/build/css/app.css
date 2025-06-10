@@ -390,6 +390,14 @@ p {
   display: flex;
   flex-direction: column;
 }
+.formulario__fielset {
+  border: none;
+  margin-top: 1rem;
+  padding: 0;
+}
+.formulario__legend {
+  color: #FFFFFF;
+}
 .formulario__campo {
   display: flex;
   flex-direction: column;
@@ -400,7 +408,6 @@ p {
   display: block;
   font-size: 1.8rem;
   color: rgba(255, 255, 255, 0.85);
-  text-shadow: 0 0 5px rgba(0, 150, 255, 0.8);
 }
 .formulario__input {
   padding: 1rem;
@@ -447,6 +454,9 @@ p {
 .formulario__submit:hover {
   background-color: #007df4;
   box-shadow: 0 0 20px #007df4;
+}
+.formulario__submit--registrar {
+  width: 100%;
 }
 
 .acciones {
@@ -819,7 +829,7 @@ p {
   padding: 2rem;
   transition: 300ms background-color ease-in-out, 300ms color ease, 300ms border-radius ease;
 }
-.dashboard__enlace:hover {
+.dashboard__enlace:hover, .dashboard__enlace--actual {
   background-color: rgb(64.3820224719, 87.9887640449, 126.6179775281);
   color: #FFFFFF;
   border-radius: 1rem;
@@ -842,5 +852,46 @@ p {
   .dashboard__contenido {
     padding: 1rem 5rem 3rem 5rem;
   }
+}
+@media (min-width: 768px) {
+  .dashboard__contenedor-boton {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+.dashboard__boton {
+  background-color: #007df4;
+  padding: 1.5rem 4rem;
+  color: #FFFFFF;
+  font-size: 1.8rem;
+  font-weight: 700;
+  border: none;
+  transition-property: background-color;
+  transition-duration: 0.3s;
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+}
+.dashboard__boton:hover {
+  background-color: #007df4;
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  .dashboard__boton {
+    width: auto;
+  }
+}
+.dashboard__contenedor, .dashboard__formulario {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  margin-top: 1rem;
+  background-color: rgb(105, 98, 98);
+  padding: 2rem;
+  border-radius: 1rem;
+}
+.dashboard__formulario {
+  width: min(80%, 50rem);
+  margin: 0 auto;
 }
 /*# sourceMappingURL=app.css.map */

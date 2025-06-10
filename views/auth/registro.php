@@ -58,8 +58,8 @@
         <input type="submit" class="formulario__submit" value="Crear Cuenta">
     </form>
     <div class="acciones">
-        <a href="<?= BASE_URL ?>login" class=acciones__enlace>Iniciar Sesión</a>
-        <a href="<?= BASE_URL ?>olvide" class=acciones__enlace>¿Olvidaste tu Password?</a>
+        <a href="<? echo  BASE_URL ?>login" class=acciones__enlace>Iniciar Sesión</a>
+        <a href="<? echo BASE_URL ?>olvide" class=acciones__enlace>¿Olvidaste tu Password?</a>
 
     </div>
 

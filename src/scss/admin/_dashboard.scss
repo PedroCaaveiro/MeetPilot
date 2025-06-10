@@ -31,10 +31,7 @@ align-items: center;
             @include m.logo;
             @include m.texto-fluido(2rem, 3rem);
         }
-&__nav{
 
-
-}
 &__form{
 display: flex;
 justify-content: center;
@@ -68,7 +65,8 @@ width: 12rem;
     align-items: center;
     padding: 2rem;
     transition: 300ms background-color ease-in-out,300ms color ease,300ms border-radius ease;
-    &:hover{
+    &:hover,
+    &--actual{
         background-color:lighten($color:v.$gris-oscuro, $amount: 20) ;
         color:v.$blanco;
         border-radius: 1rem;
@@ -96,5 +94,33 @@ padding: 1rem 1rem 3rem 1rem ;
 }
 
 }
-    
+&__contenedor-boton{
+    @include m.tablet{
+display: flex;
+justify-content:flex-end; 
+
+    }
+}
+&__boton{
+    @include m.boton(v.$azul,v.$blanco);
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    @include m.tablet{
+width: auto;
+    }
+}
+    &__contenedor{
+
+@include m.boxShadow;
+margin-top: 1rem;
+background-color:rgb(105, 98, 98);
+padding: 2rem;
+border-radius: 1rem;
+    }
+    &__formulario{
+        @extend .dashboard__contenedor;
+        @include m.contenedor-md;
+        
+    }
+   
 }

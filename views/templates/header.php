@@ -21,12 +21,12 @@
 <div class="barra">
     <div class="barra__contenido">
 
-       <a href="<?php BASE_URL?>"> <h2 class="barra__logo">&#60;MeetPilot /></h2></a>
+       <a href="<?php echo BASE_URL?>"> <h2 class="barra__logo">&#60;MeetPilot /></h2></a>
             
         <nav class="navegacion">
-        <a href="<?php BASE_URL?>meetpilot" class="navegacion__enlace">Evento</a>
-        <a href="<?php BASE_URL?>paquetes" class="navegacion__enlace">Paquetes</a>
-        <a href="<?php BASE_URL?>workshops-conferencias" class="navegacion__enlace">Workshops / Confenrencias</a>
-        <a href="<?php BASE_URL?>registro" class="navegacion__enlace">Comprar Pase</a></nav>
+        <a href="<?php echo BASE_URL?>meetpilot" class="navegacion__enlace">Evento</a>
+        <a href="<?php echo BASE_URL?>paquetes" class="navegacion__enlace">Paquetes</a>
+        <a href="<?php echo BASE_URL?>workshops-conferencias" class="navegacion__enlace">Workshops / Confenrencias</a>
+        <a href="<?php echo BASE_URL?>registro" class="navegacion__enlace">Comprar Pase</a></nav>
     </div>
 </div>

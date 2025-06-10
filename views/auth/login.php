@@ -8,7 +8,7 @@ require_once __DIR__. '/../templates/alertas.php';
 
 ?>
 
-<form action="<?php BASE_URL?>login" method="POST" class="formulario">
+<form action="<?php echo BASE_URL?>login" method="POST" class="formulario">
 
 
 <div class="formulario__campo">
@@ -22,8 +22,8 @@ require_once __DIR__. '/../templates/alertas.php';
 <input type="submit" class="formulario__submit" value="Iniciar Sesión">
 </form>
 <div class="acciones">
-    <a href="<?= BASE_URL ?>registro" class=acciones__enlace >¿Aun no te registraste?</a>
-<a href="<?= BASE_URL ?>olvide" class=acciones__enlace>¿Olvidaste tu Password?</a>
+    <a href="<? echo BASE_URL ?>registro" class=acciones__enlace >¿Aun no te registraste?</a>
+<a href="<? echo  BASE_URL ?>olvide" class=acciones__enlace>¿Olvidaste tu Password?</a>
 
 </div>
 
