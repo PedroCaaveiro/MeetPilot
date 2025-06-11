@@ -29,13 +29,14 @@
    }
    &__icono{
      background-color: v.$gris-oscuro;
-    width:5rem;
+    width:3rem;
+    
     display: flex;
     align-items: center;
     justify-content: center;
      i {
       color:v.$blanco;
-      font-size: 3rem;
+      font-size: 2rem;
     }
    }
    
@@ -71,6 +72,11 @@ padding: 1rem;
       border-top-left-radius:0 ;
         border-bottom-left-radius:0 ;
     }
+   }
+
+   &__listado{
+
+    @include m.tags;
    }
    &__submit{
     @include m.boton(v.$azul,v.$blanco);

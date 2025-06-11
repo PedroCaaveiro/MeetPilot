@@ -1,6 +1,7 @@
    <header class="dashboard__header">
     <div class="dashboard__header-grid">
-        <a href="<? BASE_URL?> ">MeetPilot />
+        <a href="<?php echo BASE_URL; ?>">
+
             <h2 class="dashboard__logo">
                 &#60;MeetPilot />
 

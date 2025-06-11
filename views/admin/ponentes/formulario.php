@@ -49,4 +49,45 @@
             <input type="text" name="redes[facebook]" class="formulario__input--sociales" placeholder="Facebook" value="<?php echo $ponente->facebook ?? ''; ?>">
         </div>
     </div>
+
+    <div class="formulario__campo">
+        <div class="formulario__contenedor--icono">
+            <div class="formulario__icono">
+                <i class="fa-brands fa-twitter"></i>
+            </div>
+            <input type="text" name="redes[twitter]" class="formulario__input--sociales" placeholder="Twitter" value="<?php echo $ponente->twitter?? ''; ?>">
+        </div>
+    </div>
+    <div class="formulario__campo">
+        <div class="formulario__contenedor--icono">
+            <div class="formulario__icono">
+                <i class="fa-brands fa-youtube"></i>
+            </div>
+            <input type="text" name="redes[youtube]" class="formulario__input--sociales" placeholder="Youtube" value="<?php echo $ponente->youtube ?? ''; ?>">
+        </div>
+    </div>
+    <div class="formulario__campo">
+        <div class="formulario__contenedor--icono">
+            <div class="formulario__icono">
+                <i class="fa-brands fa-instagram"></i>
+            </div>
+            <input type="text" name="redes[instagram]" class="formulario__input--sociales" placeholder="intagram" value="<?php echo $ponente->instagram ?? ''; ?>">
+        </div>
+    </div>
+    <div class="formulario__campo">
+        <div class="formulario__contenedor--icono">
+            <div class="formulario__icono">
+                <i class="fa-brands fa-tiktok"></i>
+            </div>
+            <input type="text" name="redes[tiktok]" class="formulario__input--sociales" placeholder="Tiktok" value="<?php echo $ponente->tiktok ?? ''; ?>">
+        </div>
+    </div>
+    <div class="formulario__campo">
+        <div class="formulario__contenedor--icono">
+            <div class="formulario__icono">
+                <i class="fa-brands fa-github"></i>
+            </div>
+            <input type="text" name="redes[github]" class="formulario__input--sociales" placeholder="Github" value="<?php echo $ponente->github ?? ''; ?>">
+        </div>
+    </div>
 </fieldset>
