@@ -12,7 +12,7 @@
 
 <?php if (!empty($ponentes)) { ?>
     <table class="table">
-<thead>
+<thead class='table__thead'>
     <tr>
         <th scope='col' class="table__th">Nombre</th>
         <th scope='col' class="table__th">Ubicación</th>
@@ -33,14 +33,17 @@
 <?php echo $ponente->ciudad. "," . $ponente->pais;?>
 </td>
 
-<td>
-    <a href="<?php echo BASE_URL . 'admin/ponentes/editar?id=' . $ponente->id; ?>">
-        <i class="fa-solid fa-pen-to-square"></i> Editar
+
+    <td class="table__td--acciones">
+    <a class='table__accion table__accion--editar' href="<?php echo BASE_URL . 'admin/ponentes/editar?id=' . $ponente->id; ?>">
+        <i class="fa-solid fa-pen-to-square"></i>Editar
     </a>
 
-    <form action="" class="table__formulario">
-        <button type='submit'>
-            <i class="fa-solid fa-circle-xmark">Eliminar</i>
+   <form method="POST" action="<?php echo BASE_URL . 'admin/ponentes/eliminar'; ?>" class="table__formulario">
+    <input type="hidden" name="id" value='<?php echo $ponente->id;?> '>
+        <button class='table__accion table__accion--eliminar' type='submit'>
+            <i class="fa-solid fa-circle-xmark"></i>
+            Eliminar
         </button></form>
 </td>
 
