@@ -16,7 +16,7 @@
     <tr>
         <th scope='col' class="table__th">Nombre</th>
         <th scope='col' class="table__th">Ubicación</th>
-        <th scope='col' class="table__th"></th>
+        <th scope='col' class="table__th">Opciones</th>
     </tr>
 </thead>
 <tbody class="table__tbody">

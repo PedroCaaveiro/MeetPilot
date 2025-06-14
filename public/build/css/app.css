@@ -948,6 +948,7 @@ p {
 .table {
   width: 100%;
   background-color: white;
+  text-align: center;
 }
 .table__thead {
   background-color: black;
@@ -956,6 +957,7 @@ p {
 .table__th {
   padding: 1rem;
   text-align: left;
+  text-align: center;
 }
 .table__tr:nth-child(even) {
   background-color: rgb(180, 178, 178);
@@ -965,9 +967,8 @@ p {
 }
 .table__td--acciones {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-around;
   gap: 2rem;
-  align-items: center;
 }
 .table__accion {
   all: unset;

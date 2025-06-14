@@ -4,6 +4,7 @@ namespace Controllers;
 
 use MVC\Router;
 use Model\Ponente;
+use Classes\Paginacion;
 use Intervention\Image\ImageManagerStatic as Image;
 
 class PonentesController {
@@ -11,6 +12,29 @@ class PonentesController {
     public static function index(Router $router) {
 $alertas = [];
 $ponentes = Ponente::all();
+
+$pagina_actual = $_GET['page'];
+$pagina_actual = filter_var($pagina_actual,FILTER_VALIDATE_INT);
+
+if (!$pagina_actual || $pagina_actual < 1 ) {
+    header('Location:'.BASE_URL. 'admin/ponentes?page=1');
+    exit;
+}
+
+
+$registros_X_pagina = 10;
+$total_registros = Ponente::total();
+
+
+$paginacion = new Paginacion($pagina_actual,$registros_X_pagina,$total_registros);
+
+
+
+if (!isAdmin()) {
+    header('Location:'.BASE_URL.'login');
+    exit;
+}
+
 
 
  if (isset($_GET['creado']) && $_GET['creado'] == '1') {
@@ -27,7 +51,17 @@ $ponentes = Ponente::all();
         $alertas = [];
         $ponente = new Ponente;
 
+        if (!isAdmin()) {
+    header('Location:'.BASE_URL.'login');
+    exit;
+}
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            if (!isAdmin()) {
+    header('Location:'.BASE_URL.'login');
+    exit;
+}
             if (!empty($_FILES['imagen']['tmp_name'])) {
    $carpeta_imagenes = __DIR__ . '/../public/build/img/speakers';
 
@@ -94,6 +128,11 @@ if (isset($_POST['redes']) && is_array($_POST['redes'])) {
        
         $id = $_GET['id'] ?? null;
         $id = filter_var($id,FILTER_VALIDATE_INT);
+
+        if (!isAdmin()) {
+    header('Location:'.BASE_URL.'login');
+    exit;
+}
         
 
         if (!$id) {
@@ -109,6 +148,11 @@ if (isset($_POST['redes']) && is_array($_POST['redes'])) {
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if (!isAdmin()) {
+    header('Location:'.BASE_URL.'login');
+    exit;
+}
+
             if (!empty($_FILES['imagen']['tmp_name'])) {
    $carpeta_imagenes = __DIR__ . '/../public/build/img/speakers';
 
@@ -152,6 +196,7 @@ if (empty($alertas)) {
                 $resultado = $ponente->guardar();
                 if ($resultado) {
                     header('Location:'. BASE_URL.'admin/ponentes');
+                    exit;
                 }
 }
 
@@ -170,19 +215,26 @@ if (empty($alertas)) {
 
     public static function eliminar(Router $router){
 
-        
+        if (!isAdmin()) {
+    header('Location:'.BASE_URL.'login');
+    exit;
+}
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+
          $id = trim($_POST['id']);
             $ponente = Ponente::find($id);
 if (!$ponente) {
     header('Location:'.BASE_URL. 'admin/ponentes');
+    exit;
 }
 
             $resultado = $ponente->eliminar();
 
             if ($resultado) {
                  header('Location:'.BASE_URL. 'admin/ponentes');
+                 exit;
             }
           
         }

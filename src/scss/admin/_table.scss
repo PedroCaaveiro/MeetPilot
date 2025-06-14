@@ -4,6 +4,7 @@
 .table{
     width: 100%;
     background-color:white;
+    text-align: center;
 
     &__thead{
         background-color:black;
@@ -12,6 +13,7 @@
     &__th{
         padding: 1rem;
         text-align: left;
+        text-align: center;
     }
     &__tr{
         &:nth-child(even){
@@ -23,9 +25,9 @@
         &--acciones{
             @extend .table__td;
             display: flex;
-            justify-content: flex-end;
+            justify-content:space-around;
             gap: 2rem;
-            align-items: center;
+            
         }
     }
     &__accion{
