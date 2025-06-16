@@ -32,6 +32,19 @@ public function paginaAnterior() {
     return ($anterior >= 1) ? $anterior : false;
 }
 
+public function numerosPaginas(){
+    $html = '';
+    for ($i = 1; $i <= $this->total_paginas(); $i++) { 
+        if ($i == $this->pagina_actual) {
+            $html .= "<span class=\"paginacion__actual\">$i</span>";
+        } else {
+            $html .= "<a class=\"paginacion__enlace\" href=\"?page=$i\">$i</a>";
+        }
+    }
+    return $html;
+}
+
+
 public function paginaSiguiente() {
     $siguiente = $this->pagina_actual + 1;
     return ($siguiente <= $this->total_paginas()) ? $siguiente : false;
@@ -58,6 +71,7 @@ public function paginacion() {
     if ($this->total_paginas() > 1) {
         $html .= '<div class="paginacion">';
         $html .= $this->enlaceAnterior();
+        $html .= $this->numerosPaginas();
         $html .= $this->enlaceSiguiente();
         $html .= '</div>';
     }

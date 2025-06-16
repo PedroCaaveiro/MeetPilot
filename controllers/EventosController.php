@@ -17,6 +17,17 @@ $router->render('admin/eventos/index',[
 ]);
 }
 
+
+public static function crear(Router $router){
+
+   $alertas =[];
+$router->render('admin/eventos/crear',[
+    'titulo'=> 'Registrar Eventos',
+    'alertas' => $alertas
+
+]);
+}
+
 }
 
 

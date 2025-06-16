@@ -24,9 +24,19 @@
         color: v.$azul;
         background-color: v.$blanco;
     }
+
     
 }
+&__actual {
+    
+    padding: 8px 12px;
+    background-color:v.$negro;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
 }
+}
+
 
 
 

@@ -1008,4 +1008,11 @@ p {
   color: #007df4;
   background-color: #FFFFFF;
 }
+.paginacion__actual {
+  padding: 8px 12px;
+  background-color: #1a1b15;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+}
 /*# sourceMappingURL=app.css.map */
