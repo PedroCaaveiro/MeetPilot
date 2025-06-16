@@ -22,11 +22,16 @@ if (!$pagina_actual || $pagina_actual < 1 ) {
 }
 
 
-$registros_X_pagina = 10;
+$registros_X_pagina =5;
 $total_registros = Ponente::total();
-
-
 $paginacion = new Paginacion($pagina_actual,$registros_X_pagina,$total_registros);
+$ponentes = Ponente::paginar($registros_X_pagina,$paginacion->offset());
+
+
+if ($paginacion->total_paginas() < $pagina_actual) {
+   header('Location:'.BASE_URL. 'admin/ponentes?page=1');
+    exit;
+}
 
 
 
@@ -43,7 +48,8 @@ if (!isAdmin()) {
         $router->render('admin/ponentes/index', [
             'titulo' => 'Ponentes / Conferencias',
             'alertas' => $alertas,
-            'ponentes'=>$ponentes
+            'ponentes'=>$ponentes,
+            'paginacion' =>$paginacion
         ]);
     }
 
