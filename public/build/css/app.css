@@ -424,28 +424,33 @@ p {
   font-size: 1.8rem;
   color: rgba(255, 255, 255, 0.85);
 }
-.formulario__input, .formulario__input--sociales {
+.formulario__input, .formulario__input--sociales, .formulario__select--sociales, .formulario__select {
   padding: 1rem;
   border: 2px solid #007df4;
   border-radius: 0.5rem;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(144, 12, 12, 0.1);
   color: #FFFFFF;
   font-size: 1.6rem;
   transition: border-color 0.3s ease;
   outline: none;
 }
-.formulario__input:focus, .formulario__input--sociales:focus {
+.formulario__input:focus, .formulario__input--sociales:focus, .formulario__select--sociales:focus, .formulario__select:focus {
   border-color: #007df4;
   box-shadow: 0 0 10px #007df4;
   background: rgba(255, 255, 255, 0.15);
 }
-.formulario__input::placeholder, .formulario__input--sociales::placeholder {
+.formulario__input::placeholder, .formulario__input--sociales::placeholder, .formulario__select--sociales::placeholder, .formulario__select::placeholder {
   color: #FFFFFF;
 }
-.formulario__input--sociales {
+.formulario__input--sociales, .formulario__select--sociales {
   flex: 1;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+}
+.formulario__radio {
+  color: #FFFFFF;
+  display: flex;
+  gap: 1rem;
 }
 .formulario__texto {
   margin-top: 2rem;
@@ -504,6 +509,10 @@ p {
   box-shadow: 0 0 20px #007df4;
 }
 
+select.formulario__select option {
+  background-color: rgba(30, 30, 30, 0.95);
+}
+
 .acciones {
   margin-top: 3rem;
   display: flex;
@@ -520,6 +529,32 @@ p {
 .acciones__enlace:hover {
   color: #FFFFFF;
   text-shadow: 0 0 15px rgb(0, 150, 255);
+}
+
+.horas {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(1, 1fr);
+}
+@media (min-width: 768px) {
+  .horas {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.horas__hora {
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  border-radius: 1rem;
+  padding: 1rem;
+  text-align: center;
+}
+.horas__hora:hover {
+  cursor: pointer;
 }
 
 .header {
