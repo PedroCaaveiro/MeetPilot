@@ -132,6 +132,23 @@ class ActiveRecord {
         return array_shift( $resultado ) ;
     }
 
+     public static function whereArray($array = []) {
+    $query = "SELECT * FROM " . static::$tabla . " WHERE ";
+
+    $condiciones = [];
+
+    foreach ($array as $key => $value) {
+        $condiciones[] = "{$key} = '" . self::$db->escape_string($value) . "'";
+    }
+
+    $query .= implode(" AND ", $condiciones);
+  
+    $resultado = self::consultarSQL($query);
+   
+    return $resultado;
+}
+
+
     // total de registros 
     public static function total(){
 $query = "SELECT COUNT(*) FROM ". static::$tabla;
