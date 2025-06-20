@@ -25,5 +25,16 @@
         color:v.$blanco;
 
         }
+        &--deshabilitado{
+            @extend .horas__hora;
+            border:1px solid v.$gris;
+            color:v.$gris;
+            opacity: 0.5;
+
+            &:hover{
+            cursor: not-allowed;
+        }
+        }
+        
     }
 }

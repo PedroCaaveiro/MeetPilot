@@ -18,6 +18,13 @@
         function terminoBusqueda(e) {
             busqueda[e.target.name] = e.target.value;
 
+            inputHiddenHoras.value = '';
+             inputHiddenDias.value = '';
+            const horaPrevia = document.querySelector('.horas__hora--seleccionada');
+               if (horaPrevia) {
+        horaPrevia.classList.remove('horas__hora--seleccionada');
+    }
+
             if (Object.values(busqueda).includes('')) {
                 return;
             }
@@ -34,13 +41,13 @@
                 return;
             }
 
-            const url = `${baseUrl}api/eventos-horario?dia=${dia}&categoria_id=${categoria_id}`;
-            console.log('URL de consulta:', url);
+            const url = `${baseUrl}api/eventos-horario?dia_id=${dia}&categoria_id=${categoria_id}`;
+           // console.log('URL de consulta:', url);
 
             try {
                 const respuesta = await fetch(url);
                 const resultado = await respuesta.json();
-                console.log('Datos recibidos:', resultado);
+                
 
                 obtenetHorasDisponibles(resultado); 
             } catch (error) {
@@ -48,8 +55,24 @@
             }
         }
 
-        function obtenetHorasDisponibles(data) {
-            const horasDisponibles = document.querySelectorAll('#horas li');
+        function obtenetHorasDisponibles(resultados) {
+            const listadoHoras = document.querySelectorAll('#horas li');
+            listadoHoras.forEach(li => li.classList.add('horas__hora--deshabilitado'));
+            
+
+            const horasTomadas = resultados.map(resultado => resultado.hora_id );
+            
+            const listadoHorasArray = Array.from(listadoHoras);
+            const resultadoFinal = listadoHorasArray.filter(li => !horasTomadas.includes(li.dataset.horaId));
+
+          
+           resultadoFinal.forEach(li => li.classList.remove('horas__hora--deshabilitado')); 
+
+
+
+
+
+            const horasDisponibles = document.querySelectorAll('#horas li:not(.horas__hora--deshabilitado)');
            horasDisponibles.forEach(hora => hora.addEventListener('click',seleccionarHora))
         }
       function seleccionarHora(e) {
@@ -61,8 +84,10 @@
 
     e.target.classList.add('horas__hora--seleccionada');
 
-    // Asegúrate de que inputHiddenHoras está definido en el ámbito
+  
     inputHiddenHoras.value = e.target.dataset.horaId;
+
+    inputHiddenDias.value = document.querySelector('[name="dia"]:checked').value;
 }
 
     }
