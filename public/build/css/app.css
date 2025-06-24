@@ -1062,4 +1062,30 @@ select.formulario__select option {
   border-radius: 5px;
   font-weight: bold;
 }
+
+.listado-ponentes {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(1, 1fr);
+}
+.listado-ponentes__ponente {
+  display: flex;
+  justify-content: center;
+  color: #FFFFFF;
+  list-style: none;
+  padding: 1rem;
+  border: 2px solid #007df4;
+  border-radius: 1rem;
+}
+.listado-ponentes__ponente:hover {
+  cursor: pointer;
+}
+.listado-ponentes__ponente--seleccionado {
+  background-color: #007df4;
+  color: #FFFFFF;
+  border-color: #007df4;
+}
 /*# sourceMappingURL=app.css.map */

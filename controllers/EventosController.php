@@ -35,6 +35,7 @@ $evento = new Evento();
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
     $evento->sincronizar($_POST);
     $alertas = $evento->validar();
     if (empty($alertas)) {

@@ -12,12 +12,12 @@
 
     <div class="formulario__campo">
         <label class='formulario__label' for="descripcion">Descripción</label>
-        <textarea class="formulario__input"
-         id="descripcion"
-         name="descripcion"
-         placeholder="Descripción Ponente"
-         rows = 8> 
-         <?php echo htmlspecialchars($evento->descripcion); ?></textarea>
+       <textarea class="formulario__input"
+          id="descripcion"
+          name="descripcion"
+          placeholder="Descripción Ponente"
+          rows="8"><?php echo htmlspecialchars($evento->descripcion); ?></textarea>
+
     </div>
 
       <div class="formulario__campo">
@@ -76,6 +76,11 @@
         <input type="text" class="formulario__input"
          id="ponentes"
          placeholder="Buscar Ponente">
+<ul id="listado-ponentes" class="listado-ponentes"></ul>
+<input type="hidden" name="ponente_id" id="ponente_id">
+
+
+
     </div>
 
     <div class="formulario__campo">

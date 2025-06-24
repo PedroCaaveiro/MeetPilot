@@ -5,6 +5,10 @@
         let ponentes = [];
         let ponentesFiltrados = [];
 
+       const listadoPonentes = document.querySelector('#listado-ponentes');
+       const ponenteHidden = document.querySelector('[name="ponente_id"]');
+
+
         obtenerPonentes();
 
         ponentesInput.addEventListener('input', buscarPonentes);
@@ -24,7 +28,7 @@
                 const resultado = await respuesta.json();
 
                 ponentes = formatearPonentes(resultado);
-                console.log('Ponentes formateados:', ponentes);
+                
             } catch (error) {
                 console.error('Error al buscar eventos:', error);
             }
@@ -52,6 +56,47 @@
                 ponentesFiltrados = [];
                 
             }
+            mostrarPonentes();
+        }
+
+        function mostrarPonentes(){
+            while (listadoPonentes.firstChild) {
+                listadoPonentes.removeChild(listadoPonentes.firstChild);
+            }   
+
+            if (ponentesFiltrados.length > 0) {
+                
+                 ponentesFiltrados.forEach(ponente => {
+
+                const ponenteHTML = document.createElement('LI');
+                ponenteHTML.classList.add('listado-ponentes__ponente');
+                ponenteHTML.textContent = ponente.nombre;
+                ponenteHTML.dataset.ponenteId = ponente.id;
+                ponenteHTML.onclick = seleccionarPonente;
+
+                listadoPonentes.appendChild(ponenteHTML);
+
+            });
+            }else{
+                const noResultados = document.createElement('P');
+                noResultados.classList.add('listado-ponentes__no-resultado');
+                noResultados.textContent = 'No hay resultados para esta busqueda';
+                listadoPonentes.appendChild(noResultados);
+            }
+
+           
+        }
+
+        function seleccionarPonente(e){
+
+          document.querySelectorAll('.listado-ponentes__ponente--seleccionado')
+        .forEach(item => item.classList.remove('listado-ponentes__ponente--seleccionado'));
+
+    
+    e.target.classList.add('listado-ponentes__ponente--seleccionado');
+
+  ponenteHidden.value = e.target.dataset.ponenteId;
+
         }
     }
 })();
