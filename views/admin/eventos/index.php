@@ -51,7 +51,7 @@
     </a>
 
    <form method="POST" action="<?php echo BASE_URL . 'admin/eventos/eliminar'; ?>" class="table__formulario">
-    <input type="hidden" name="id" value='<?php echo $eventos->id;?> '>
+    <input type="hidden" name="id" value='<?php echo $evento->id;?> '>
         <button class='table__accion table__accion--eliminar' type='submit'>
             <i class="fa-solid fa-circle-xmark"></i>
             Eliminar

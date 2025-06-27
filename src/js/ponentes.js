@@ -13,6 +13,19 @@
 
         ponentesInput.addEventListener('input', buscarPonentes);
 
+         if (ponenteHidden.value) {
+            (async() =>{
+                const ponente = await obtenerPonente(ponenteHidden.value);
+                const ponenteDOM = document.createElement('LI');
+                ponenteDOM.classList.add('listado-ponentes__ponente','listado-ponentes__ponente--seleccionado');
+                ponenteDOM.textContent = `${ponente.nombre} ${ponente.apellido}`;
+listadoPonentes.appendChild(ponenteDOM);
+
+            })();
+        }
+
+
+
         async function obtenerPonentes(){
             const baseUrl = window.BASE_URL;
 
@@ -33,6 +46,23 @@
                 console.error('Error al buscar eventos:', error);
             }
         }
+
+        async function obtenerPonente(id){
+
+             const baseUrl = window.BASE_URL;
+
+        if (!baseUrl) {
+            console.error('BASE_URL no está definida');
+            return;
+        }
+
+             const url = `${baseUrl}api/ponente?id=${id}`;
+             const respuesta = await fetch(url);
+             const resultado = await respuesta.json();
+             return resultado;
+        }
+
+
 
         function formatearPonentes(arrayPonentes = []) {
             return arrayPonentes.map(ponente => {

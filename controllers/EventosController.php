@@ -59,6 +59,11 @@ $evento = new Evento();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+         if (!isAdmin()) {
+    header('Location:'.BASE_URL.'login');
+    exit;
+}
+
     $evento->sincronizar($_POST);
     $alertas = $evento->validar();
     if (empty($alertas)) {
@@ -109,6 +114,11 @@ if (!$evento) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+         if (!isAdmin()) {
+    header('Location:'.BASE_URL.'login');
+    exit;
+}
+
     $evento->sincronizar($_POST);
     $alertas = $evento->validar();
     if (empty($alertas)) {
@@ -132,6 +142,40 @@ $router->render('admin/eventos/editar',[
 ]);
 }
 
+
+
+    public static function eliminar(Router $router){
+
+
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+     if (!isAdmin()) {
+    header('Location:'.BASE_URL.'login');
+    exit;
+}
+
+         $id = trim($_POST['id']);
+
+            $evento = Evento::find($id);
+
+if (!$evento) {
+    header('Location:'.BASE_URL. 'admin/eventos');
+    exit;
+}
+
+            $resultado = $evento->eliminar();
+
+            if ($resultado) {
+                 header('Location:'.BASE_URL. 'admin/eventos');
+                 exit;
+            }
+          
+        }
+
+       
+
+
+    }
 
 }
 

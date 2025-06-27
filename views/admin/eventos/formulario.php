@@ -82,7 +82,7 @@
          id="ponentes"
          placeholder="Buscar Ponente">
 <ul id="listado-ponentes" class="listado-ponentes"></ul>
-<input type="hidden" name="ponente_id" id="ponente_id">
+<input type="hidden" name="ponente_id" id="ponente_id" value="<?php echo $evento->ponente_id;?>">
 
 
 

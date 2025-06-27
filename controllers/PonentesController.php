@@ -10,6 +10,11 @@ use Intervention\Image\ImageManagerStatic as Image;
 class PonentesController {
 
     public static function index(Router $router) {
+
+                if (!isAdmin()) {
+    header('Location:'.BASE_URL.'login');
+    exit;
+}
 $alertas = [];
 $ponentes = Ponente::all();
 
@@ -221,13 +226,14 @@ if (empty($alertas)) {
 
     public static function eliminar(Router $router){
 
-        if (!isAdmin()) {
-    header('Location:'.BASE_URL.'login');
-    exit;
-}
+   
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+     if (!isAdmin()) {
+    header('Location:'.BASE_URL.'login');
+    exit;
+}
 
          $id = trim($_POST['id']);
             $ponente = Ponente::find($id);
