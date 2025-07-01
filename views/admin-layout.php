@@ -42,6 +42,6 @@
 </script>
 
 
-      <script src="<?php echo BASE_URL;?>build/js/bundle.min.js" defer></script>
+      <script src="<?php echo BASE_URL;?>build/js/main.min.js" defer></script>
 </body>
 </html>

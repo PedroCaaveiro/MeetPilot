@@ -475,6 +475,123 @@ p {
   text-align: center;
 }
 
+.agenda {
+  padding: 5rem 0;
+  width: min(95%, 120rem);
+  margin: 0 auto;
+}
+.agenda .agenda__heading,
+.agenda .agenda__descripcion {
+  color: #1a1b15;
+}
+
+.eventos .eventos__listados {
+  color: #1a1b15;
+}
+.eventos__heading {
+  color: #007df4;
+  margin: 5rem 0;
+  text-align: left;
+  font-size: clamp(2rem, -0.8rem + 8vw, 6rem);
+}
+.eventos__fecha {
+  color: #64748B;
+  margin: 3rem 0 1rem 0;
+}
+.eventos--workshops .eventos__heading {
+  color: #00c8c2;
+}
+.eventos--workshops .evento__informacion {
+  background-color: #00c8c2;
+}
+.eventos--workshops .evento__informacion:hover {
+  background-color: rgb(0, 149, 144.53);
+}
+.eventos .swiper-button-next,
+.eventos .swiper-button-prev {
+  color: #FFFFFF;
+}
+
+.evento__hora {
+  color: #1a1b15;
+  font-weight: 700;
+}
+.evento__informacion {
+  color: #FFFFFF;
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: #007df4;
+  transition: 300ms background-color ease;
+}
+.evento__informacion:hover {
+  background-color: rgb(0, 98.8729508197, 193);
+}
+.evento__nombre {
+  font-size: 1.8rem;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.evento__introduccion {
+  font-size: 1.3rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-weight: 700;
+}
+.evento__autor-info {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.evento__imagen-autor {
+  width: 5rem;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+}
+.evento__autor-nombre {
+  font-weight: 700;
+}
+
+.resumen {
+  background: linear-gradient(to right, rgba(0, 125, 244, 0.7), rgba(0, 125, 244, 0.9)), url("../img/bg_numeros.avif");
+  background-size: cover;
+  background-position: center;
+  padding: 12rem 0;
+}
+.resumen__grid {
+  width: min(95%, 120rem);
+  margin: 0 auto;
+  display: grid;
+  gap: 5rem;
+  grid-template-columns: repeat(1, 1fr);
+}
+@media (min-width: 768px) {
+  .resumen__grid {
+    display: grid;
+    gap: 5rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.resumen__bloque {
+  text-align: center;
+}
+.resumen__texto, .resumen__texto--numero {
+  line-height: 1;
+  margin: 0;
+  font-size: 2.4rem;
+  text-transform: uppercase;
+}
+.resumen__texto--numero {
+  font-size: 6rem;
+}
+
 .formulario {
   display: flex;
   flex-direction: column;
@@ -688,16 +805,19 @@ select.formulario__select option {
     justify-content: flex-end;
   }
 }
-.header__enlace {
+.header__enlace, .header__submit {
   all: unset;
   color: #FFFFFF;
   font-size: 1.4rem;
   text-transform: uppercase;
   font-weight: 700;
 }
-.header__enlace:hover {
+.header__enlace:hover, .header__submit:hover {
   color: #007df4;
   cursor: pointer;
+}
+.header__form {
+  display: flex;
 }
 .header__contenido {
   padding-top: 10rem;
@@ -825,10 +945,10 @@ select.formulario__select option {
   transition: transform 0.6s ease;
   border-radius: 1px;
 }
-.navegacion__enlace:hover {
+.navegacion__enlace--actual, .navegacion__enlace:hover {
   color: #007df4;
 }
-.navegacion__enlace:hover::after {
+.navegacion__enlace--actual::after, .navegacion__enlace:hover::after {
   transform: translateX(-50%) scaleX(1);
 }
 

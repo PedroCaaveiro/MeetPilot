@@ -19,8 +19,9 @@ function s($html) : string {
 }
 
 function paginaActual($path): bool {
-    return str_contains($_SERVER['PATH_INFO'],$path) ? true : false;
+    return str_contains($_SERVER['REQUEST_URI'], $path);
 }
+
 
 function isAuth(): bool {
     iniciarSesionSiNoIniciada();

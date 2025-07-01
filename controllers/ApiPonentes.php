@@ -19,7 +19,7 @@ public static function ponente(){
     $id = filter_var($id,FILTER_VALIDATE_INT);
 
     if (!$id || $id < 1) {
-        echo json_enconde([]);
+        echo json_encode([]);
         return;
     }
     $ponente = Ponente::find($id);

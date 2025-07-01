@@ -3,9 +3,25 @@
 <div class="header__contenedor">
 
 <nav class="header__navegacion">
+
+<?php if (isAuth()) { ?>
+<a href="<?php echo BASE_URL . (isAdmin() ? 'admin/dashboard' : 'finalizar-registro'); ?>" class="header__enlace">Administrar</a>
+<form method='POST' action="<?php echo BASE_URL;?>logout" class="header__form">
+
+            <input type="submit" value="Cerrar Sesion" class="header__submit">
+            </form>
+            
+ <?php } else { ?>
+<?php
+
+?>
+
     <a href="<?= BASE_URL;?>registro" class="header__enlace">Registro</a>
     <a href="<?= BASE_URL;?>login" class="header__enlace">iniciar Sesión</a>
+    <?php } ?>
     </nav>
+
+
     <div class="header__contenido">
 <a href="<?= BASE_URL;?>" class="header__enlace">
     <h1 class="header__logo">&#60;MeetPilot /></h1>
@@ -24,9 +40,18 @@
        <a href="<?php echo BASE_URL;?>"> <h2 class="barra__logo">&#60;MeetPilot /></h2></a>
             
         <nav class="navegacion">
-        <a href="<?php echo BASE_URL;?>meetpilot" class="navegacion__enlace">Evento</a>
-        <a href="<?php echo BASE_URL;?>paquetes" class="navegacion__enlace">Paquetes</a>
-        <a href="<?php echo BASE_URL;?>workshops-conferencias" class="navegacion__enlace">Workshops / Confenrencias</a>
-        <a href="<?php echo BASE_URL;?>registro" class="navegacion__enlace">Comprar Pase</a></nav>
+    <a href="<?php echo BASE_URL;?>meetpilot" 
+       class="navegacion__enlace <?php echo paginaActual('/meetpilot') ? 'navegacion__enlace--actual' : ''; ?>">Evento</a>
+
+    <a href="<?php echo BASE_URL;?>paquetes" 
+       class="navegacion__enlace <?php echo paginaActual('/paquetes') ? 'navegacion__enlace--actual' : ''; ?>">Paquetes</a>
+
+    <a href="<?php echo BASE_URL;?>workshops-conferencias" 
+       class="navegacion__enlace <?php echo paginaActual('/workshops-conferencias') ? 'navegacion__enlace--actual' : ''; ?>">Workshops / Conferencias</a>
+
+    <a href="<?php echo BASE_URL;?>registro" 
+       class="navegacion__enlace <?php echo paginaActual('/registro') ? 'navegacion__enlace--actual' : ''; ?>">Comprar Pase</a>
+</nav>
+
     </div>
 </div>

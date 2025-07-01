@@ -37,7 +37,7 @@ class AuthController {
 
                        
                         if ($usuario->admin) {
-                            header('Location:'. BASE_URL .'admin/dashboard');
+                            header('Location:'. BASE_URL .'login');
                             exit;
                         }else{
                             header('Location:'. BASE_URL.'finalizar-registro');

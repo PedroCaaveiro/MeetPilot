@@ -130,6 +130,14 @@ class ActiveRecord {
         $query = "SELECT * FROM " . static::$tabla . " WHERE {$columna} = '{$valor}'";
         $resultado = self::consultarSQL($query);
         return array_shift( $resultado ) ;
+
+    }
+
+    public static function ordenar($columna,$orden){
+$query = "SELECT * FROM ". static::$tabla. " ORDER BY {$columna} {$orden}";
+$resultado = self::consultarSQL($query);
+return $resultado;
+
     }
 
      public static function whereArray($array = []) {
@@ -150,16 +158,24 @@ class ActiveRecord {
 
 
     // total de registros 
-    public static function total(){
-$query = "SELECT COUNT(*) FROM ". static::$tabla;
-$resultado = self::$db->query($query);
+   public static function total($columna = '', $valor = '') {
+    $query = "SELECT COUNT(*) FROM " . static::$tabla;
 
-$total = $resultado->fetch_array();
+    if ($columna) {
+        // Escapamos el valor si es string
+        if (is_string($valor)) {
+            $valor = "'" . self::$db->real_escape_string($valor) . "'";
+        }
 
-return array_shift($total);
-
-
+        $query .= " WHERE {$columna} = {$valor}";
     }
+
+    $resultado = self::$db->query($query);
+    $total = $resultado->fetch_array();
+
+    return array_shift($total);
+}
+
 
     public static function paginar($porPagina, $offset){
 

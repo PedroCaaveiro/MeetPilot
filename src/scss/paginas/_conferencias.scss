@@ -1,0 +1,107 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.agenda {
+    padding: 5rem 0;
+    @include m.contenedor;
+  .agenda__heading,
+  .agenda__descripcion {
+    color: v.$negro;
+  }
+}
+
+.eventos {
+    $modificador: &;
+  
+  
+  .eventos__listados {
+    color: v.$negro;
+  }
+  &__heading{
+    color:v.$azul;
+    margin: 5rem 0;
+    text-align: left;
+   font-size: clamp(2rem,-0.8rem + 8vw, 6rem);
+
+
+  }
+  &__fecha{
+    color:v.$gris;
+    margin: 3rem 0 1rem 0;
+
+  }
+  &--workshops{
+    #{$modificador}__heading{
+        color:v.$secundario;
+    }
+
+    .evento__informacion{
+      background-color: v.$secundario;
+      &:hover{
+        background-color: darken($color: v.$secundario, $amount:10);
+      }
+    }
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev{
+color:v.$blanco;
+  }
+}
+
+.evento {
+  &__hora {
+    color: v.$negro;
+    font-weight: v.$bold;
+  }
+
+  &__informacion {
+    color: v.$blanco;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: v.$azul;
+    transition: 300ms background-color ease;
+    &:hover{
+      background-color: darken($color: v.$azul, $amount: 10);
+    }
+    
+  }
+  &__nombre{
+    font-size: 1.8rem;
+    margin: 0;
+     display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &__introduccion{
+    font-size: 1.3rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    font-weight: v.$bold;
+  }
+  &__autor-info{
+display: flex;
+gap: 2rem;
+justify-content: space-between;
+align-items: center;
+
+  }
+  &__imagen-autor{
+    width: 5rem;
+    background-color: v.$blanco;
+    border-radius: 50%;
+  }
+  &__autor-nombre{
+    font-weight: v.$bold;
+
+
+  }
+}
+
