@@ -1,5 +1,9 @@
+
+@use 'sass:color';
 @use 'base/mixins' as m;
 @use 'base/variables' as v;
+
+
 
 .dashboard {
 
@@ -49,7 +53,7 @@ flex: 1;
 overflow-y: auto;
 }
 &__sidebar{
-background-color:lighten($color:v.$gris-oscuro, $amount: 10);
+background-color: color.adjust(v.$gris-oscuro, $lightness: 10%);
 width: 12rem;
 
 }
@@ -60,15 +64,16 @@ width: 12rem;
     gap:1rem;
 }
 &__enlace{
-    color:lighten($color:v.$gris-oscuro, $amount:40);
-    display: flex;
+    color: color.adjust(v.$gris-oscuro, $lightness: 40%);
+     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 2rem;
     transition: 300ms background-color ease-in-out,300ms color ease,300ms border-radius ease;
     &:hover,
     &--actual{
-        background-color:lighten($color:v.$gris-oscuro, $amount: 20) ;
+     background-color: color.adjust(v.$gris-oscuro, $lightness: 20%);
+
         color:v.$blanco;
         border-radius: 1rem;
     }

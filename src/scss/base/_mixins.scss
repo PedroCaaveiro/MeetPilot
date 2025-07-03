@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use 'variables' as v;
 
 /** Media Queries **/
@@ -192,7 +193,7 @@
 }
 
 @mixin card{
-    border:1px solid lighten($color:v.$gris, $amount: 10);
+   border: 1px solid color.adjust(v.$gris, $lightness: 10%);
      padding: 2rem;
 
     &__nombre{
