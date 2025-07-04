@@ -77,5 +77,6 @@ $router->get('/',[PaginaController::class,'index']);
 $router->get('/meetpilot',[PaginaController::class,'evento']);
 $router->get('/paquetes',[PaginaController::class,'paquetes']);
 $router->get('/workshops-conferencias',[PaginaController::class,'conferencias']);
+$router->get('/404',[PaginaController::class,'error']);
 
 $router->comprobarRutas();

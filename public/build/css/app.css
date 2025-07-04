@@ -509,7 +509,7 @@ p {
 }
 .eventos .swiper-button-next,
 .eventos .swiper-button-prev {
-  color: #FFFFFF;
+  color: #1a1b15;
 }
 
 .evento__hora {
@@ -812,6 +812,19 @@ p {
 .boleto__enlace:hover {
   background-color: #007df4;
   cursor: pointer;
+}
+
+.pagina_404__contenedor {
+  text-align: center;
+}
+.pagina_404__heading {
+  color: #1a1b15;
+}
+.pagina_404__texto {
+  color: #1a1b15;
+}
+.pagina_404__enlace {
+  color: #007df4;
 }
 
 .formulario {
