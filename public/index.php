@@ -12,6 +12,7 @@ use Controllers\RegalosController;
 use Controllers\ApiEventos;
 use Controllers\ApiPonentes;
 use Controllers\PaginaController;
+use Controllers\RegistroController;
 
 
 $router = new Router();
@@ -71,7 +72,8 @@ $router->get('/admin/registrados', [RegistradosController::class, 'index']);
 
 $router->get('/admin/regalos', [RegalosController::class, 'index']);
 
-
+$router->get('/finalizar-registro',[RegistroController::class,'crear']);
+$router->post('/finalizar-registro/gratis',[RegistroController::class,'gratis']);
 
 $router->get('/',[PaginaController::class,'index']);
 $router->get('/meetpilot',[PaginaController::class,'evento']);

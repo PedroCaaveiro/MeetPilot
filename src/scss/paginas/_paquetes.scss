@@ -12,6 +12,10 @@
             align-items: flex-start;
         }
     }
+    &__submit{
+        margin-top: 2rem;
+        @include  m.boton(v.$azul,v.$blanco);
+    }
 
   .paquetes__heading,
   .paquete__descripcion,

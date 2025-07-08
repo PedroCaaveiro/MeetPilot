@@ -1,0 +1,19 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+
+.registro{
+    
+align-items: center;
+
+&__heading{
+color:v.$negro;
+
+}
+
+.paquete__nombre{
+text-align: center;
+    color:v.$negro;
+}
+
+}

@@ -437,6 +437,24 @@ p {
     align-items: flex-start;
   }
 }
+.paquetes__submit {
+  margin-top: 2rem;
+  background-color: #007df4;
+  padding: 1.5rem 4rem;
+  color: #FFFFFF;
+  font-size: 1.8rem;
+  font-weight: 700;
+  border: none;
+  transition-property: background-color;
+  transition-duration: 0.3s;
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+}
+.paquetes__submit:hover {
+  background-color: #007df4;
+  cursor: pointer;
+}
 .paquetes .paquetes__heading,
 .paquetes .paquete__descripcion,
 .paquetes .paquete__nombre,
@@ -825,6 +843,17 @@ p {
 }
 .pagina_404__enlace {
   color: #007df4;
+}
+
+.registro {
+  align-items: center;
+}
+.registro__heading {
+  color: #1a1b15;
+}
+.registro .paquete__nombre {
+  text-align: center;
+  color: #1a1b15;
 }
 
 .formulario {
