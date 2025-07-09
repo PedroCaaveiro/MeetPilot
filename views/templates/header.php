@@ -5,20 +5,18 @@
 <nav class="header__navegacion">
 
 <?php if (isAuth()) { ?>
-<a href="<?php echo BASE_URL . (isAdmin() ? 'admin/dashboard' : 'finalizar-registro'); ?>" class="header__enlace">Administrar</a>
-<form method='POST' action="<?php echo BASE_URL;?>logout" class="header__form">
-
-            <input type="submit" value="Cerrar Sesion" class="header__submit">
-            </form>
-            
- <?php } else { ?>
-<?php
-
-?>
-
-    <a href="<?= BASE_URL;?>registro" class="header__enlace">Registro</a>
-    <a href="<?= BASE_URL;?>login" class="header__enlace">iniciar Sesión</a>
+    <?php if (isAdmin()) { ?>
+        <a href="<?= BASE_URL; ?>admin/dashboard" class="header__enlace">Administrar</a>
     <?php } ?>
+
+    <form method="POST" action="<?= BASE_URL; ?>logout" class="header__form">
+        <input type="submit" value="Cerrar Sesión" class="header__submit">
+    </form>
+<?php } else { ?>
+    <a href="<?= BASE_URL; ?>registro" class="header__enlace">Registro</a>
+    <a href="<?= BASE_URL; ?>login" class="header__enlace">Iniciar Sesión</a>
+<?php } ?>
+
     </nav>
 
 

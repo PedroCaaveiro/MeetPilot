@@ -75,6 +75,8 @@ $router->get('/admin/regalos', [RegalosController::class, 'index']);
 $router->get('/finalizar-registro',[RegistroController::class,'crear']);
 $router->post('/finalizar-registro/gratis',[RegistroController::class,'gratis']);
 
+$router->get('/boleto',[RegistroController::class,'boleto']);
+
 $router->get('/',[PaginaController::class,'index']);
 $router->get('/meetpilot',[PaginaController::class,'evento']);
 $router->get('/paquetes',[PaginaController::class,'paquetes']);
