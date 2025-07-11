@@ -5,7 +5,8 @@
 <p class="pagina__descripcion">Tu Tiquet -- Te recomendamos almacenarlo, puedes compartilo en redes sociales</p>
 
 <div class="boleto__virtual">
-<div class="boleto boleto--<?php echo strtolower($registro->paquete->nombre); ?>">
+
+<div class="boleto boleto--<?php echo strtolower($registro->paquete->nombre); ?> boleto--acceso">
 
 <div class="boleto__contenido">
     <h4 class="boleto__logo">&#60;Meetpilot/></h4>

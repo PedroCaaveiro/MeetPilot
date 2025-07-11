@@ -41,9 +41,12 @@
     <a href="<?php echo BASE_URL;?>meetpilot" 
        class="navegacion__enlace <?php echo paginaActual('/meetpilot') ? 'navegacion__enlace--actual' : ''; ?>">Evento</a>
 
-    <a href="<?php echo BASE_URL;?>paquetes" 
-       class="navegacion__enlace <?php echo paginaActual('/paquetes') ? 'navegacion__enlace--actual' : ''; ?>">Paquetes</a>
+<a href="<?php echo isAuth() && !isAdmin() ? BASE_URL . 'finalizar-registro' : BASE_URL . 'paquetes'; ?>" 
+   class="navegacion__enlace <?php echo (paginaActual('/paquetes') || paginaActual('/finalizar-registro')) ? 'navegacion__enlace--actual' : ''; ?>">
+   Paquetes
+</a>
 
+       
     <a href="<?php echo BASE_URL;?>workshops-conferencias" 
        class="navegacion__enlace <?php echo paginaActual('/workshops-conferencias') ? 'navegacion__enlace--actual' : ''; ?>">Workshops / Conferencias</a>
 
