@@ -1,0 +1,73 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+
+.eventos-registro {
+    @include m.contenedor;
+
+    @include m.tablet {
+        display: flex;
+        gap: 2rem;
+        align-items: flex-start;
+
+    }
+
+    &__listado {
+        @include m.tablet {
+            flex: 0 0 60%;
+        }
+
+    }
+
+    &__heading {
+
+        &--conferencias,
+        &--workshops {
+            @include m.texto-fluido(2rem, 5rem);
+            white-space: nowrap;
+        }
+
+        &--workshops {
+            color: v.$secundario;
+            margin-top: 5rem;
+        }
+
+        &--conferencias {
+            color: v.$negro;
+        }
+    }
+
+    &__fecha {
+        color: v.$negro;
+    }
+
+    &__grid {
+        @include m.grid(1, 5rem);
+
+        @include m.tablet {
+            @include m.grid(2, 3rem);
+        }
+    }
+
+    &__fecha {
+        margin: 6rem 3rem 0;
+    }
+
+}
+
+.registro {
+    background-color: v.$gris-claro;
+    padding: 3rem;
+    border-radius: 1rem;
+    @include m.tablet {
+        flex: 0 0 40%;
+        position: sticky;
+        position:-webkit-sticky;
+        top: 3rem;
+    }
+
+    &__heading{
+        margin:0 0 3rem 0 ;
+
+    }
+}

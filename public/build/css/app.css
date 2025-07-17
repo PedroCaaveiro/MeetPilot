@@ -494,6 +494,9 @@ p {
   text-align: center;
   margin-bottom: 2rem;
 }
+.paquete__mensaje {
+  color: #1a1b15;
+}
 
 #paypal-container-YWFDU68AP9SPJ iframe {
   height: 45px !important; /* opcional: reduce altura del iframe */
@@ -581,6 +584,28 @@ p {
 }
 .evento__autor-nombre {
   font-weight: 700;
+}
+.evento__agregar {
+  background-color: #FFFFFF;
+  padding: 1.5rem 4rem;
+  color: #1a1b15;
+  font-size: 1.8rem;
+  font-weight: 700;
+  border: none;
+  transition-property: background-color;
+  transition-duration: 0.3s;
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+  margin-top: 1rem;
+}
+.evento__agregar:hover {
+  background-color: #FFFFFF;
+  cursor: pointer;
+}
+.evento__agregar:disabled {
+  opacity: 0.5;
+  cursor: none;
 }
 
 .resumen {
@@ -1646,5 +1671,68 @@ select.formulario__select option {
   background-color: #007df4;
   color: #FFFFFF;
   border-color: #007df4;
+}
+
+.eventos-registro {
+  width: min(95%, 120rem);
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .eventos-registro {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+}
+@media (min-width: 768px) {
+  .eventos-registro__listado {
+    flex: 0 0 60%;
+  }
+}
+.eventos-registro__heading--conferencias, .eventos-registro__heading--workshops {
+  font-size: clamp(2rem, -0.8rem + 10vw, 5rem);
+  white-space: nowrap;
+}
+.eventos-registro__heading--workshops {
+  color: #00c8c2;
+  margin-top: 5rem;
+}
+.eventos-registro__heading--conferencias {
+  color: #1a1b15;
+}
+.eventos-registro__fecha {
+  color: #1a1b15;
+}
+.eventos-registro__grid {
+  display: grid;
+  gap: 5rem;
+  grid-template-columns: repeat(1, 1fr);
+}
+@media (min-width: 768px) {
+  .eventos-registro__grid {
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.eventos-registro__fecha {
+  margin: 6rem 3rem 0;
+}
+
+.registro {
+  background-color: #F8FAFC;
+  padding: 3rem;
+  border-radius: 1rem;
+}
+@media (min-width: 768px) {
+  .registro {
+    flex: 0 0 40%;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 3rem;
+  }
+}
+.registro__heading {
+  margin: 0 0 3rem 0;
 }
 /*# sourceMappingURL=app.css.map */

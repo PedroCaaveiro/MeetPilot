@@ -4,19 +4,22 @@
 
     <div class="paquetes__grid">
     <div class="paquete">
-        <h3 class="paquete__nombre">Pase Gratis</h3>
-        <ul class="paquete__lista">
-            <li class="paquete__elemento">Acceso Virtual a MeetPilot</li>
-        </ul>
-        <p class="paquete__precio">0 €</p>
+    <h3 class="paquete__nombre">Pase Gratis</h3>
+    <ul class="paquete__lista">
+        <li class="paquete__elemento">Acceso Virtual a MeetPilot</li>
+    </ul>
+    <p class="paquete__precio">0 €</p>
 
+    <?php if (isset($registro) && $registro->paquete_id === "3"): ?>
+        <p class="paquete__mensaje">Ya tienes este pase.</p>
+        <a class="paquete__boton" href="<?php echo BASE_URL . 'boleto?id=' . urlencode($registro->token); ?>">Ver tu Boleto</a>
+    <?php else: ?>
         <form action="<?php echo BASE_URL;?>finalizar-registro/gratis" method="POST">
-
-    <input class="paquetes__submit" type='submit' value='Inscripción gratis'>
-
+            <input class="paquetes__submit" type='submit' value='Inscripción gratis'>
         </form>
+    <?php endif; ?>
+</div>
 
-    </div>
      <div class="paquete">
         <h3 class="paquete__nombre">Pase Presencial</h3>
         <ul class="paquete__lista">
