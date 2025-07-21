@@ -98,7 +98,7 @@ margin-top: 2rem;
    }
    &__submit{
     @include m.boton(v.$azul,v.$blanco);
- width: auto;
+  width: auto;
     align-self: flex-start;
     font-weight: 700;
     font-size: 1.8rem;
@@ -113,6 +113,9 @@ margin-top: 2rem;
       background-color:v.$azul;
       box-shadow: 0 0 20px v.$azul;
     }
+   &--full{
+    width: 100%;
+   }
    
    }
    

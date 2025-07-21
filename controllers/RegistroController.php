@@ -11,6 +11,7 @@ use Model\Dia;
 use Model\Ponente;
 use Model\Evento;
 use Model\Categoria;
+use Model\Regalo;
 
 
 
@@ -177,9 +178,11 @@ if (!$registro || !in_array($registro->paquete_id, ['1', '2', '3'])) {
             
         }
 
+        $regalos = Regalo::all('ASC');
         $router->render('registro/conferencias',[
             'titulo'=> 'Elige Workhops & Conferencias',
-            'eventos' => $eventos_formateados
+            'eventos' => $eventos_formateados,
+            'regalos' => $regalos
             
 
         ]);

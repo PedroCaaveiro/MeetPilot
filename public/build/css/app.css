@@ -1082,6 +1082,9 @@ p {
   background-color: #007df4;
   box-shadow: 0 0 20px #007df4;
 }
+.formulario__submit--full {
+  width: 100%;
+}
 
 select.formulario__select option {
   background-color: rgba(30, 30, 30, 0.95);
@@ -1732,7 +1735,46 @@ select.formulario__select option {
     top: 3rem;
   }
 }
+.registro__evento {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.registro__nombre {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
 .registro__heading {
   margin: 0 0 3rem 0;
+}
+.registro__eliminar {
+  all: unset;
+  color: rgb(169, 0, 0);
+}
+.registro__eliminar:hover {
+  cursor: pointer;
+}
+.registro__regalo {
+  margin-top: 3rem;
+}
+.registro__label {
+  display: block;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  width: 100%;
+}
+.registro__select {
+  display: block;
+  width: 100%;
+  background-color: #FFFFFF;
+  border: 1px solid #64748B;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.swal2-popup {
+  font-size: 2rem !important;
 }
 /*# sourceMappingURL=app.css.map */
