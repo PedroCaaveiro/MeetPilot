@@ -73,14 +73,16 @@ class ActiveRecord {
     }
 
     // Sanitizar los datos antes de guardarlos en la BD
-    public function sanitizarAtributos() {
-        $atributos = $this->atributos();
-        $sanitizado = [];
-        foreach($atributos as $key => $value ) {
-            $sanitizado[$key] = self::$db->escape_string($value);
-        }
-        return $sanitizado;
+   public function sanitizarAtributos() {
+    $atributos = $this->atributos();
+    $sanitizado = [];
+    foreach($atributos as $key => $value ) {
+        // Evita pasar null al escape_string
+        $sanitizado[$key] = is_null($value) ? null : self::$db->escape_string($value);
     }
+    return $sanitizado;
+}
+
 
     // Sincroniza BD con Objetos en memoria
     public function sincronizar($args=[]) { 
@@ -120,9 +122,9 @@ class ActiveRecord {
 
     // Obtener Registros con cierta cantidad
     public static function get($limite) {
-        $query = "SELECT * FROM " . static::$tabla . " LIMIT {$limite} ORDER BY id DESC" ;
+        $query = "SELECT * FROM " . static::$tabla . "  ORDER BY id DESC LIMIT {$limite}" ;
         $resultado = self::consultarSQL($query);
-        return array_shift( $resultado ) ;
+        return $resultado  ;
     }
 
     // Busqueda Where con Columna 
@@ -139,22 +141,34 @@ $resultado = self::consultarSQL($query);
 return $resultado;
 
     }
+        public static function ordenarLimite($columna,$orden,$limite){
+$query = "SELECT * FROM ". static::$tabla. " ORDER BY {$columna} {$orden} LIMIT {$limite}";
+$resultado = self::consultarSQL($query);
+return $resultado;
 
-     public static function whereArray($array = []) {
-    $query = "SELECT * FROM " . static::$tabla . " WHERE ";
-
-    $condiciones = [];
-
-    foreach ($array as $key => $value) {
-        $condiciones[] = "{$key} = '" . self::$db->escape_string($value) . "'";
     }
 
-    $query .= implode(" AND ", $condiciones);
-  
+  public static function whereArray($array = [], $extraSQL = '') {
+    $query = "SELECT * FROM " . static::$tabla;
+
+    if (!empty($array)) {
+        $condiciones = [];
+
+        foreach ($array as $key => $value) {
+            $condiciones[] = "{$key} = '" . self::$db->escape_string($value) . "'";
+        }
+
+        $query .= " WHERE " . implode(" AND ", $condiciones);
+    }
+
+    if (!empty($extraSQL)) {
+        $query .= " " . $extraSQL;
+    }
+
     $resultado = self::consultarSQL($query);
-   
     return $resultado;
 }
+
 
 
     // total de registros 
@@ -176,6 +190,28 @@ return $resultado;
     return array_shift($total);
 }
 
+  public static function totalArray($array = []) {
+    $query = "SELECT COUNT(*) FROM " . static::$tabla;
+
+    if (!empty($array)) {
+        $condiciones = [];
+
+        foreach ($array as $key => $value) {
+            $condiciones[] = "{$key} = '" . self::$db->escape_string((string)$value) . "'";
+        }
+
+        $query .= " WHERE " . implode(" AND ", $condiciones);
+    }
+
+
+
+    $resultado = self::$db->query($query);
+    $total = $resultado->fetch_array();
+
+    return array_shift($total);
+}
+
+
 
     public static function paginar($porPagina, $offset){
 
@@ -185,9 +221,9 @@ return $resultado;
     }
 
     // crea un nuevo registro
-    public function crear() {
-        // Sanitizar los datos
-        $atributos = $this->sanitizarAtributos();
+   public function crear() {
+    // Sanitizar los datos
+    $atributos = $this->sanitizarAtributos();
 
     // Normalizar atributos numéricos
     foreach($atributos as $key => $value) {
@@ -200,16 +236,27 @@ return $resultado;
 
     $query = "INSERT INTO " . static::$tabla . " (";
     $query .= join(', ', array_keys($atributos));
-    $query .= ") VALUES ('"; 
-    $query .= join("','", array_values($atributos));
-    $query .= "')";
+    $query .= ") VALUES (";
+
+    $valores = [];
+    foreach ($atributos as $valor) {
+        if (is_null($valor) || $valor === '') {
+            $valores[] = "NULL";
+        } else {
+            $valores[] = "'" . $valor . "'";
+        }
+    }
+
+    $query .= join(', ', $valores);
+    $query .= ")";
 
     $resultado = self::$db->query($query);
     return [
        'resultado' =>  $resultado,
        'id' => self::$db->insert_id
     ];
-    }
+}
+
 
     // Actualizar el registro
     public function actualizar() {

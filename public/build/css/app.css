@@ -1578,6 +1578,10 @@ select.formulario__select option {
   width: min(80%, 50rem);
   margin: 0 auto;
 }
+.dashboard__grafica {
+  width: min(95%, 60rem);
+  margin: 0 auto;
+}
 
 .table {
   width: 100%;
@@ -1676,6 +1680,59 @@ select.formulario__select option {
   border-color: #007df4;
 }
 
+.bloques {
+  width: min(95%, 120rem);
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .bloques {
+    margin-top: 10rem;
+  }
+}
+.bloques__grid {
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: repeat(1, 1fr);
+}
+@media (min-width: 1024px) {
+  .bloques__grid {
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.bloque {
+  padding: 2rem;
+  border-radius: 1rem;
+}
+.bloque:nth-child(1) {
+  background-image: linear-gradient(to left top, #F97316);
+}
+.bloque:nth-child(2) {
+  background-image: linear-gradient(to left top, #A855F7);
+}
+.bloque:nth-child(3) {
+  background-image: linear-gradient(to left top, #65A30D);
+}
+.bloque:nth-child(4) {
+  background-image: linear-gradient(to left top, #17769E);
+}
+.bloque__heading {
+  margin: 1rem 0 2rem 0;
+  font-size: 3rem;
+}
+.bloque__texto {
+  margin: 1rem 0;
+  font-size: 1.5rem;
+}
+.bloque__texto--cantidad {
+  text-align: center;
+  font-weight: 900;
+  margin-top: 5rem;
+  font-size: 6rem;
+}
+
 .eventos-registro {
   width: min(95%, 120rem);
   margin: 0 auto;
@@ -1754,6 +1811,10 @@ select.formulario__select option {
 }
 .registro__eliminar:hover {
   cursor: pointer;
+}
+.registro__texto {
+  text-align: center;
+  color: #1a1b15;
 }
 .registro__regalo {
   margin-top: 3rem;

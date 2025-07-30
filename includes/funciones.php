@@ -6,12 +6,13 @@ function iniciarSesionSiNoIniciada() {
     }
 }
 
-function debuguear($variable) : string {
-    echo "<pre>";
+function debuguear($variable): string {
+    echo '<pre>';
     var_dump($variable);
-    echo "</pre>";
+    echo '</pre>';
     exit;
 }
+
 
 function s($html) : string {
     $s = htmlspecialchars($html);

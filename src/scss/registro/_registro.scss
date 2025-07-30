@@ -91,6 +91,10 @@
         cursor: pointer;
     }
     }
+    &__texto{
+        text-align: center;
+        color:v.$negro;
+    }
 
     &__regalo{
         margin-top: 3rem;

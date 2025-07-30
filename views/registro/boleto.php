@@ -18,5 +18,11 @@
 
 </div>
 
+ <?php if (isAuth()) : ?>
+        <div class="boleto__acciones" style="text-align: center; margin-top: 2rem;">
+            <a href="/finalizar-registro" class="boton boton--secundario">Comprar otro pase</a>
+
+        </div>
+    <?php endif; ?>
 </main>
 

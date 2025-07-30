@@ -27,7 +27,16 @@
         <script>
             AOS.init();
         </script>
+
+      
+       <script>
+         window.BASE_URL = "<?= BASE_URL ?>";
+        </script>
         
+        <script>
+            window.eventosSeleccionadosBackend = <?php echo json_encode($eventos_seleccionados ?? []); ?>;
+        </script>
+
     <script src="<?php echo BASE_URL; ?>build/js/main.min.js" defer></script>
 
     

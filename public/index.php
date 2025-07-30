@@ -11,8 +11,10 @@ use Controllers\RegistradosController;
 use Controllers\RegalosController;
 use Controllers\ApiEventos;
 use Controllers\ApiPonentes;
+use Controllers\ApiRegalos;
 use Controllers\PaginaController;
 use Controllers\RegistroController;
+
 
 
 $router = new Router();
@@ -62,9 +64,9 @@ $router->post('/admin/eventos/eliminar', [EventosController::class, 'eliminar'])
 
 
 $router->get('/api/eventos-horario',[ApiEventos::class,'index']);
-
 $router->get('/api/ponentes',[ApiPonentes::class,'index']);
 $router->get('/api/ponente',[ApiPonentes::class,'ponente']);
+$router->get('/api/regalos',[ApiRegalos::class,'index']);
 
 
 
@@ -76,6 +78,7 @@ $router->get('/finalizar-registro',[RegistroController::class,'crear']);
 $router->post('/finalizar-registro/gratis',[RegistroController::class,'gratis']);
 $router->post('/finalizar-registro/pagar',[RegistroController::class,'pagar']);
 $router->get('/finalizar-registro/conferencias',[RegistroController::class,'conferencias']);
+$router->post('/finalizar-registro/conferencias',[RegistroController::class,'conferencias']);
 
 $router->get('/boleto',[RegistroController::class,'boleto']);
 

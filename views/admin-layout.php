@@ -37,11 +37,11 @@
 
         </div>
         
-        <script>
-    window.BASE_URL = "<?= BASE_URL ?>";
-</script>
+      <script>
+         window.BASE_URL = "<?= BASE_URL ?>";
+      </script>
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js" integrity="sha512-ZwR1/gSZM3ai6vCdI+LVF1zSq/5HznD3ZSTk7kajkaj4D292NLuduDCO1c/NT8Id+jE58KYLKT7hXnbtryGmMg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       <script src="<?php echo BASE_URL;?>build/js/main.min.js" defer></script>
 </body>
 </html>

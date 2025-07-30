@@ -81,25 +81,31 @@ paypal.Buttons({
   },
   onApprove: function(data, actions) {
     return actions.order.capture().then(function(orderData) {
-     const datos = new FormData();
-     datos.append('paquete_id',1);
-     datos.append('pago_id',orderData.purchase_units[0].payments.captures[0].id);
+      console.log('Pago capturado:', orderData); // Depuración
 
-
+      const datos = new FormData();
+      datos.append('paquete_id', 1);
+      datos.append('pago_id', orderData.purchase_units[0].payments.captures[0].id);
 
       const baseUrl = window.BASE_URL;
-     fetch(baseUrl + 'finalizar-registro/pagar',{
-      method: 'POST',
-      body: datos
-     }).then(respuesta=> respuesta.json())
-     .then(resultado => {
-      if (resultado.resultado === 'ok') {
-        window.location.href = baseUrl + 'finalizar-registro/conferencias';
+      console.log('BASE_URL:', baseUrl); // Depuración
 
-        
-      }
-     })
+      fetch(baseUrl + 'finalizar-registro/pagar', {
+        method: 'POST',
+        body: datos
+      })
+      .then(respuesta => respuesta.json())
+      .then(resultado => {
+        console.log('Respuesta backend:', resultado); // Depuración
 
+        if (resultado.resultado === 'ok') {
+          const redirectUrl = baseUrl.endsWith('/') ? baseUrl + 'finalizar-registro/conferencias' : baseUrl + '/finalizar-registro/conferencias';
+          console.log('Redirigiendo a:', redirectUrl); // Depuración
+          window.location.href = redirectUrl;
+        } else {
+          alert('Error en el registro. Intenta de nuevo.');
+        }
+      });
     });
   }
 }).render('#paypal-button-presencial');
@@ -125,27 +131,36 @@ paypal.Buttons({
   },
   onApprove: function(data, actions) {
     return actions.order.capture().then(function(orderData) {
+      console.log('Pago capturado:', orderData); // Depuración
+
       const datos = new FormData();
-      datos.append('paquete_id', 2); // ID correcto del pase virtual
+      datos.append('paquete_id', 2);
       datos.append('pago_id', orderData.purchase_units[0].payments.captures[0].id);
 
       const baseUrl = window.BASE_URL;
+      console.log('BASE_URL:', baseUrl); // Depuración
+
       fetch(baseUrl + 'finalizar-registro/pagar', {
         method: 'POST',
-        body: datos
+        body: datos,
+         credentials: 'include'
       })
       .then(respuesta => respuesta.json())
       .then(resultado => {
-     
-        if (resultado.resultado === 'ok') {
-         window.location.href = baseUrl + 'finalizar-registro/conferencias';
+        console.log('Respuesta backend:', resultado); // Depuración
 
-        } else {
-          alert('Error en el registro. Intenta de nuevo.');
-        }
+       if (resultado.resultado === 'ok') {
+  if (datos.get('paquete_id') === '2') { // pase virtual 49€
+    window.location.href = window.BASE_URL + 'boleto?id=' + resultado.token;
+  } else {
+    window.location.href = window.BASE_URL + 'finalizar-registro/conferencias';
+  }
+}
+
       });
     });
   }
 }).render('#paypal-button-virtual');
+
 
 </script>

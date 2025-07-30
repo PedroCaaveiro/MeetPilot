@@ -5,6 +5,22 @@ document.addEventListener('DOMContentLoaded', function () {
   const resumen = document.querySelector('#registro-resumen');
 if (resumen) {
   
+ const eventosSeleccionadosBackend = window.eventosSeleccionadosBackend || [];
+
+    if(eventosSeleccionadosBackend.length > 0){
+      eventos = eventosSeleccionadosBackend.map(id => {
+        const boton = document.querySelector(`[data-id="${id}"]`);
+        if(boton){
+          boton.disabled = true;
+          const contenedorEvento = boton.closest('.evento');
+          const tituloElem = contenedorEvento ? contenedorEvento.querySelector('.evento__nombre') : null;
+          const titulo = tituloElem ? tituloElem.textContent.trim() : 'Evento sin título';
+          return { id, titulo };
+        }
+        return null;
+      }).filter(e => e !== null);
+    }
+
 
 
   const eventosboton = document.querySelectorAll('.evento__agregar');
@@ -15,6 +31,8 @@ if (resumen) {
   
   const formularioregistro = document.querySelector('#registro');
   formularioregistro.addEventListener('submit',submitFormulario);
+
+  mostrareventos();
 
  function seleccionarEvento(e) {
   const id = e.target.dataset.id;
@@ -78,6 +96,12 @@ if (resumen) {
             eventoDom.appendChild(botonEliminar);
             resumen.appendChild(eventoDom);
           })
+        }else{
+          const noRegistro = document.createElement('P');
+          noRegistro.textContent = 'No hay eventos, añade hasta 5 eventos';
+          noRegistro.classList.add('registro__texto');
+          resumen.appendChild(noRegistro);
+
         }
     
 
@@ -100,25 +124,90 @@ if (resumen) {
 
 
 }
-function submitFormulario(e){
-e.preventDefault();
+async function submitFormulario(e) {
+  e.preventDefault();
 
-const regaloId = document.querySelector('#regalo').value;
-console.log(regaloId);
-const eventosId = eventos.map(evento => evento.id);
-console.log(eventosId);
+  const regaloId = document.querySelector('#regalo').value;
+  const eventosId = eventos.map(evento => evento.id);
 
-if (eventosId.length === 0 || regaloId === '' ) {
-   Swal.fire({
-      title:'Error',
+  if (eventosId.length === 0 || regaloId === '') {
+    Swal.fire({
+      title: 'Error',
       text: 'Elige al menos un evento y un regalo',
       icon: 'error',
       confirmButtonText: 'OK'
+    });
+    return;
+  }
+
+  const baseUrl = window.BASE_URL;
+
+  if (!baseUrl) {
+    console.error('BASE_URL no está definida');
+    return;
+  }
+
+  const datos = new FormData();
+ eventosId.forEach((id, i) => {
+  datos.append(`eventos[${i}]`, id);
+});
+
+  datos.append('regalo_id', regaloId);
+
+  const url = `${baseUrl}finalizar-registro/conferencias`;
+
+  try {
+    const respuesta = await fetch(url, {
+      method: 'POST',
+      body: datos
+    });
+
+    const textoRespuesta = await respuesta.text();
+    console.log('Respuesta del servidor:', textoRespuesta);
+
+    try {
+      const resultado = JSON.parse(textoRespuesta);
+
+     if (resultado.resultado === 'ok') {
+  Swal.fire({
+    title: 'Registro Exitoso',
+    text: 'Tus conferencias se han almacenado correctamente, te esperamos en MeetPilot',
+    icon: 'success',
+    confirmButtonText: 'OK'
+  }).then(() => {
     
+    window.location.href = `${baseUrl}boleto?id=${resultado.token}`;
   });
-  return;
+} else {
+  Swal.fire({
+    title: 'Error',
+    text: resultado.mensaje || 'Error en la respuesta del servidor',
+    icon: 'error',
+    confirmButtonText: 'OK'
+  });
 }
 
+
+    } catch (error) {
+      console.error('Error al parsear JSON:', error);
+      Swal.fire({
+        title: 'Error',
+        text: 'Respuesta inválida del servidor. Revisa la consola para más detalles.',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      });
+    }
+
+  } catch (error) {
+    console.error('Error en la petición fetch:', error);
+    Swal.fire({
+      title: 'Error',
+      text: 'No se pudo conectar con el servidor.',
+      icon: 'error',
+      confirmButtonText: 'OK'
+    });
+  }
 }
+
  
 });
