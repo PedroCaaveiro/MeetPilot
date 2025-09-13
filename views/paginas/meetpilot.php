@@ -12,8 +12,10 @@
             </picture>
         </div>
         <div class="meetpilot__contenido">
-            <p class="meetpilot__texto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores quibusdam facilis dolorem vero ex dignissimos! Doloremque deleniti nihil, officiis incidunt eum excepturi, ad error dolor culpa voluptas atque esse? At.</p>
-            <p class="meetpilot__texto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores quibusdam facilis dolorem vero ex dignissimos! Doloremque deleniti nihil, officiis incidunt eum excepturi, ad error dolor culpa voluptas atque esse? At.</p>
+            <p class="meetpilot__texto">Fundada en 2023, MeetPilot nace con la visión de conectar a ponentes y asistentes de todo el mundo en un entorno seguro y altamente interactivo.
+
+Con MeetPilot, los usuarios pueden crear eventos personalizados, gestionar inscripciones y ofrecer experiencias únicas mediante salas virtuales con video en alta definición, chat en tiempo real y herramientas de colaboración integradas. Cada conferencia puede ser configurada con horarios flexibles, paquetes de acceso exclusivos y recursos adicionales como documentos, presentaciones y encuestas interactivas.</p>
+            <p class="meetpilot__texto">Con MeetPilot, cada reunión se convierte en una experiencia única, fomentando la participación activa, la interacción significativa y el aprendizaje colaborativo. Únete a nuestra comunidad y descubre cómo llevar tus eventos online al siguiente nivel.</p>
 
         </div>
         

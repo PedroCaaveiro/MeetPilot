@@ -4,6 +4,14 @@
 -- ------------------------------------------------------
 -- Server version	8.0.40
 
+-- Crear la base de datos si no existe
+CREATE DATABASE IF NOT EXISTS meetpilot CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- Seleccionar la base de datos
+USE meetpilot;
+
+
+
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
