@@ -88,7 +88,7 @@ include_once __DIR__ . '/workshops-conferencias.php';
     </div>
 
     <div class="boleto__enlace-contenedor">
-        <a href="<?= ASSETS_URL ; ?>paquetes" class="boleto__enlace">Ver Paquetes</a>
+        <a href="<?= BASE_URL ; ?>paquetes" class="boleto__enlace">Ver Paquetes</a>
     </div>
 </section>
 
