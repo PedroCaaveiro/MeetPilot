@@ -24,6 +24,7 @@ if ($isLocalhost) {
 // Definir constantes para usarlas en toda la app
 define('BASE_URL', $base);
 define('ASSETS_URL', $assets);
+/*
 
 
 
