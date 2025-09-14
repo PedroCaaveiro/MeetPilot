@@ -34,8 +34,8 @@ include_once __DIR__ . '/workshops-conferencias.php';
         ?>
         <div class="speaker<?= $claseFondo ?>" data-animate="fade" data-index="<?= $index ?>">
             <picture>
-                <source srcset="<?= BASE_URL . 'build/img/speakers/' . $ponente->imagen; ?>.webp" type="image/webp">
-                <img src="<?= BASE_URL . 'build/img/speakers/' . $ponente->imagen; ?>.png" alt="Imagen Ponente" class="speaker__imagen" loading="lazy" width="200" height="300">
+                <source srcset="<?= ASSETS_URL  . 'build/img/speakers/' . $ponente->imagen; ?>.webp" type="image/webp">
+                <img src="<?= ASSETS_URL  . 'build/img/speakers/' . $ponente->imagen; ?>.png" alt="Imagen Ponente" class="speaker__imagen" loading="lazy" width="200" height="300">
             </picture>
 
             <div class="speaker__informacion">
@@ -88,7 +88,7 @@ include_once __DIR__ . '/workshops-conferencias.php';
     </div>
 
     <div class="boleto__enlace-contenedor">
-        <a href="<?= BASE_URL; ?>paquetes" class="boleto__enlace">Ver Paquetes</a>
+        <a href="<?= ASSETS_URL ; ?>paquetes" class="boleto__enlace">Ver Paquetes</a>
     </div>
 </section>
 

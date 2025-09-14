@@ -14,8 +14,8 @@
                 <p class="evento__introduccion"><?= $evento->descripcion; ?></p>
                 <div class="evento__autor-info">
                   <picture>
-                    <source srcset="<?= BASE_URL . 'build/img/speakers/' . $evento->ponente->imagen; ?>.webp" type="image/webp">
-                    <img src="<?= BASE_URL . 'build/img/speakers/' . $evento->ponente->imagen; ?>.png" alt="Imagen Ponente" class="evento__imagen-autor" loading="lazy" width="200" height="300">
+                    <source srcset="<?= ASSETS_URL  . 'build/img/speakers/' . $evento->ponente->imagen; ?>.webp" type="image/webp">
+                    <img src="<?= ASSETS_URL  . 'build/img/speakers/' . $evento->ponente->imagen; ?>.png" alt="Imagen Ponente" class="evento__imagen-autor" loading="lazy" width="200" height="300">
                   </picture>
                   <p class="evento__autor-nombre"><?= $evento->ponente->nombre . ' ' . $evento->ponente->apellido; ?></p>
                 </div>
@@ -41,8 +41,8 @@
                 <p class="evento__introduccion"><?= $evento->descripcion; ?></p>
                 <div class="evento__autor-info">
                   <picture>
-                    <source srcset="<?= BASE_URL . 'build/img/speakers/' . $evento->ponente->imagen; ?>.webp" type="image/webp">
-                    <img src="<?= BASE_URL . 'build/img/speakers/' . $evento->ponente->imagen; ?>.png" alt="Imagen Ponente" class="evento__imagen-autor" loading="lazy" width="200" height="300">
+                    <source srcset="<?= ASSETS_URL  . 'build/img/speakers/' . $evento->ponente->imagen; ?>.webp" type="image/webp">
+                    <img src="<?= ASSETS_URL  . 'build/img/speakers/' . $evento->ponente->imagen; ?>.png" alt="Imagen Ponente" class="evento__imagen-autor" loading="lazy" width="200" height="300">
                   </picture>
                   <p class="evento__autor-nombre"><?= $evento->ponente->nombre . ' ' . $evento->ponente->apellido; ?></p>
                 </div>

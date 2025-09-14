@@ -5,11 +5,16 @@
 
     <div class="meetpilot__grid">
         <div class="meetpilot__imagen">
-            <picture>
-                <source src="build/img/sobre_devwebcamp.avif" type="image/avif">
-                 <source src="build/img/sobre_devwebcamp.webp" type="image/webp">
-                  <img loading='lazy' src='build/img/sobre_devwebcamp.jpg' windth='200' height='300' alt='Imagen meetpilot'>
-            </picture>
+           <picture>
+    <source src="<?= ASSETS_URL . 'build/img/sobre_devwebcamp.avif'; ?>" type="image/avif">
+    <source src="<?= ASSETS_URL . 'build/img/sobre_devwebcamp.webp'; ?>" type="image/webp">
+    <img loading="lazy" 
+         src="<?= ASSETS_URL . 'build/img/sobre_devwebcamp.jpg'; ?>" 
+         width="200" 
+         height="300" 
+         alt="Imagen MeetPilot">
+</picture>
+
         </div>
         <div class="meetpilot__contenido">
             <p class="meetpilot__texto">Fundada en 2023, MeetPilot nace con la visión de conectar a ponentes y asistentes de todo el mundo en un entorno seguro y altamente interactivo.
