@@ -4,11 +4,10 @@
 -- ------------------------------------------------------
 -- Server version	8.0.40
 
--- Crear la base de datos si no existe
-CREATE DATABASE IF NOT EXISTS meetpilot CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
 
 -- Seleccionar la base de datos
-USE meetpilot;
+USE if0_38503538_MeetPilot;
 
 
 

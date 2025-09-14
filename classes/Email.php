@@ -110,11 +110,11 @@ class Email {
         // Crear un nuevo objeto PHPMailer
         $mail = new PHPMailer();
         $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
+         $mail->Host = $_ENV['EMAIL_HOST'];
+        $mail->Username = $_ENV['EMAIL_USER'];
+        $mail->Password = $_ENV['EMAIL_PASS'];
+        $mail->Port = $_ENV['EMAIL_PORT'];
         $mail->SMTPAuth = true;
-        $mail->Port = 587;
-        $mail->Username = 'acaaveir@gmail.com';
-        $mail->Password = $_ENV['EMAIL_PASS']; // Contraseña de aplicación de Gmail
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 
         // Remitente y destinatario
@@ -142,12 +142,12 @@ class Email {
         // Crear un nuevo objeto PHPMailer
         $mail = new PHPMailer();
         $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Port = 587;
-        $mail->Username = 'acaaveir@gmail.com';
-        $mail->Password = $_ENV['EMAIL_PASS']; // Contraseña de aplicación de Gmail
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Host = $_ENV['EMAIL_HOST'];
+        $mail->Username = $_ENV['EMAIL_USER'];
+        $mail->Password = $_ENV['EMAIL_PASS'];
+        $mail->Port = $_ENV['EMAIL_PORT'];
 
         // Remitente y destinatario
         $mail->setFrom('acaaveir@gmail.com', 'MeetPilot');
