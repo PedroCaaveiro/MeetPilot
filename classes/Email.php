@@ -128,7 +128,7 @@ class Email {
 
         $contenido = '<html>';
         $contenido .= "<p><strong>Hola " . $this->nombre .  "</strong>, has registrado correctamente tu cuenta en MeetPilot; pero es necesario confirmarla.</p>";
-        $contenido .= "<p>Presiona aquí: <a href='" . $_ENV['HOST'] . BASE_URL . "confirmar-cuenta?token=" . $this->token . "'>Confirmar Cuenta</a></p>";       
+        $contenido .= "<p>Presiona aquí: <a href='" . BASE_URL . "confirmar-cuenta?token=" . $this->token . "'>Confirmar Cuenta</a></p>";       
         $contenido .= "<p>Si tú no creaste esta cuenta, puedes ignorar este mensaje.</p>";
         $contenido .= '</html>';
         $mail->Body = $contenido;
